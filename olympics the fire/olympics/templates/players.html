@@ -1,0 +1,304 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Olympic Player Description{% endblock title %}
+{% block content %}
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f0f8ff; /* Light background */
+    }
+
+    .player-container {
+      display: flex;
+      flex-direction: row;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      background-color: #ffffff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+    }
+
+    .player-info {
+      flex-basis: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-right: 20px;
+    }
+
+    #player-image {
+      border-radius: 50%;
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border: 2px solid black;
+      margin-bottom: 20px;
+    }
+
+    #player-name {
+      font-weight: bold;
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    #player-sport {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    #team-info {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    #team-code {
+      font-weight: bold;
+    }
+
+    .description-section {
+      flex-basis: 50%;
+      padding-left: 20px;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      padding: 15px;
+    }
+
+    .medals-section {
+      width: 100%;
+      padding: 20px 0;
+    }
+
+    .medals-button {
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 15px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .medals-button:hover {
+      background-color: #0056b3;
+    }
+
+    #medals-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: center;
+      display: none; /* Hide table by default */
+    }
+
+    #medals-table th, #medals-table td {
+      border: 1px solid black;
+      padding: 10px;
+    }
+
+    #medals-table th {
+      background-color: #f4f4f4;
+    }
+
+    .search {
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    .search input {
+      width: 50%;
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    @media (max-width: 768px) {
+  .player-container {
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center align elements */
+  }
+
+  .player-info, .description-section {
+    flex-basis: 100%; /* Full width on small screens */
+    padding: 0; /* Reset padding */
+    text-align: center; /* Center text */
+  }
+
+  /* Ensure the player image is always at the top */
+  .player-info {
+    order: 1; /* Ensure player info comes first */
+  }
+
+  .description-section {
+    order: 2; /* Description comes second */
+  }
+
+  .search input {
+    width: 80%; /* Increase input width */
+  }
+  .navbar-nav {
+    text-align: center; /* Center nav links on small screens */
+  }
+
+  .navbar-toggler {
+    margin-left: auto; /* Align toggler button to the right */
+  }
+  .nav-item{
+    margin: 0 10px; /* Add some spacing between nav links */
+  }
+}
+
+    @media (max-width: 480px) {
+      #player-name {
+        font-size: 20px; /* Smaller font size for smaller screens */
+      }
+
+      #player-sport {
+        font-size: 18px; /* Smaller font size for smaller screens */
+      }
+
+      .medals-button {
+        font-size: 14px; /* Smaller button text */
+        padding: 8px 12px; /* Smaller padding */
+      }
+    }
+  </style>
+</head>
+  <section class="search">
+    <form action="">
+      <input type="text" id="searchbox" placeholder="Search for your favourite player" onkeyup="search()">
+    </form>
+  </section>
+  <div id="player-list"></div>
+  <script>
+    let playerData = [];
+
+    function fetchPlayerData() {
+        fetch("{% static 'playerDetails.json' %}")
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok ' + response.statusText);
+                }
+                return response.json();
+            })
+            .then(data => {
+                playerData = data.playerDetails;
+                displayAllPlayers();
+            })
+            .catch(error => {
+                console.error('Error fetching player data:', error);
+                alert('Failed to load player data. Please try again later.');
+            });
+    }
+
+    fetchPlayerData();
+
+    function displayAllPlayers() {
+        const fragment = document.createDocumentFragment();
+        playerData.forEach((player, index) => displayPlayerData(player, index, fragment));
+        document.getElementById("player-list").appendChild(fragment);
+    }
+
+    function displayPlayerData(player, index, fragment) {
+        const playerContainer = document.createElement('div');
+        playerContainer.className = 'player-container';
+
+        // Alternate pattern: change the order for even indexed players
+        if (index % 2 === 0) {
+            // Player info on the left
+            playerContainer.innerHTML = `
+                <div class="player-info">
+                    <img id="player-image" src="{% static 'images/player/' %}${player.image}" alt="${player.name}">
+                    <h2 id="player-name">${player.name}</h2>
+                    <h3 id="player-sport">${player.sport}</h3>
+                    <div id="team-info">
+                        <span><div class="fi fi-${player.letter2}"></div></span>
+                        <span id="team-code">${player.countryName.toUpperCase()}</span>
+                    </div>
+                </div>
+                <div class="description-section">
+                    <p id="player-description">${player.bio}</p>
+                    <div class="medals-section">
+                        <button class="medals-button" onclick="toggleMedals(event)">Medals Won</button>
+                        <table id="medals-table" style="display: none; margin-top:10px;">
+                            <thead>
+                                <tr>
+                                    <th>Event</th>
+                                    <th>Gold</th>
+                                    <th>Silver</th>
+                                    <th>Bronze</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Total</td>
+                                    <td>${countMedals(player.events, 'g')}</td>
+                                    <td>${countMedals(player.events, 's')}</td>
+                                    <td>${countMedals(player.events, 'b')}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            `;
+        } else {
+            // Player info on the right
+            playerContainer.innerHTML = `
+                <div class="description-section">
+                    <p id="player-description">${player.bio}</p>
+                    <div class="medals-section">
+                        <button class="medals-button" onclick="toggleMedals(event)">Medals Won</button>
+                        <table id="medals-table" style="display: none;">
+                            <thead>
+                                <tr>
+                                    <th>Event</th>
+                                    <th>Gold</th>
+                                    <th>Silver</th>
+                                    <th>Bronze</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Total</td>
+                                    <td>${countMedals(player.events, 'g')}</td>
+                                    <td>${countMedals(player.events, 's')}</td>
+                                    <td>${countMedals(player.events, 'b')}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="player-info">
+                    <img id="player-image" src="{% static 'images/player/' %}${player.image}" alt="${player.name}">
+                    <h2 id="player-name">${player.name}</h2>
+                    <h3 id="player-sport">${player.sport}</h3>
+                    <div id="team-info">
+                        <span><div class="fi fi-${player.letter2}"></div></span>
+                        <span id="team-code">${player.countryName.toUpperCase()}</span>
+                    </div>
+                </div>
+            `;
+        }
+
+        fragment.appendChild(playerContainer);
+    }
+
+    function countMedals(events, type) {
+        return events.filter(event => event.medal_won === type).length;
+    }
+
+    function toggleMedals(event) {
+        const medalsTable = event.target.nextElementSibling; // Get the next table
+        medalsTable.style.display = (medalsTable.style.display === "none" || medalsTable.style.display === "") ? "block" : "none";
+    }
+
+    function search() {
+        const searchValue = document.getElementById('searchbox').value.toLowerCase();
+        document.querySelectorAll('.player-container').forEach(container => {
+            const playerName = container.querySelector('#player-name').textContent.toLowerCase();
+            container.style.display = playerName.includes(searchValue) ? 'flex' : 'none';
+        });
+    }
+  </script>
+{% endblock content %}

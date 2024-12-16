@@ -1,0 +1,333 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Olympics Game{% endblock title %}
+
+
+{% block content %}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    #searchbox {
+        border: 2px solid black;
+        border-radius: 10px;
+        width: 97%;
+        height: 60px;
+        font-size: 1.5em; /* Adjust font size for responsiveness */
+        text-align: left;
+        padding: 10px;
+        margin: 10px;
+    }
+
+    .game-cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 0 5%; /* Add padding for better spacing */
+    }
+
+    .gamecard {
+        height: 400px;
+        width: 250px;
+        border: 5px solid black;
+        border-radius: 3%;
+        margin: 20px;
+        position: relative;
+        overflow: hidden;
+        background-size: cover;
+        transition: transform 0.3s ease;
+    }
+
+    .gamecard h2 {
+        position: absolute;
+        left: 0;
+        right: 0;
+        text-align: center;
+        color: #e3f2fd;
+        font-size: 2em;
+        padding: 5px 0;
+        z-index: 1;
+    }
+
+    .gamecard:hover {
+        transform: scale(1.05);
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) { /* Mobile devices */
+        #searchbox {
+            font-size: 1.2em;
+            height: 50px;
+        }
+
+        .gamecard {
+            width: 100%; /* Full width on mobile */
+            max-width: 300px; /* Limit max width */
+            height: 300px; /* Adjust height */
+        }
+
+        .gamecard h2 {
+            font-size: 1.5em; /* Smaller font size */
+        }
+    }
+
+    @media (min-width: 769px) and (max-width: 1024px) { /* Tablet devices */
+        #searchbox {
+            font-size: 1.5em;
+            height: 60px;
+        }
+
+        .gamecard {
+            width: 45%; /* Two cards per row */
+            height: 350px; /* Slightly smaller height */
+        }
+
+        .gamecard h2 {
+            font-size: 1.8em;
+        }
+    }
+
+    @media (min-width: 1025px) and (max-width: 1440px) { /* Laptop devices */
+        #searchbox {
+            font-size: 1.8em;
+            height: 70px;
+        }
+
+        .gamecard {
+            width: 30%; /* Three cards per row */
+            height: 400px; /* Maintain original height */
+        }
+
+        .gamecard h2 {
+            font-size: 2em;
+        }
+    }
+
+    @media (min-width: 1441px) { /* TV and large screens */
+        #searchbox {
+            font-size: 2em;
+            height: 80px;
+        }
+
+        .gamecard {
+            width: 20%; /* Five cards per row */
+            height: 450px; /* Slightly taller */
+        }
+
+        .gamecard h2 {
+            font-size: 2.5em; /* Larger font size */
+        }
+    }
+#game01{background-image: url("{% static 'images/games/cover/Games/Archery.jpg' %}");}
+#game02{background-image: url("{% static 'images/games/cover/Games/Artistic_Gymnastic.jpg' %}");}
+#game03{background-image: url("{% static 'images/games/cover/Games/Artistic_swimming.jpg' %}");}
+#game04{background-image: url("{% static 'images/games/cover/Games/Athletics.jpg' %}");}
+#game05{background-image: url("{% static 'images/games/cover/Games/Badminton.jpg' %}");}
+#game06{background-image: url("{% static 'images/games/cover/Games/Basketball.jpg' %}");}
+#game07{background-image: url("{% static 'images/games/cover/Games/BasketBall3.jpg' %}");}
+#game08{background-image: url("{% static 'images/games/cover/Games/BeachVolleyball.jpg' %}");}
+#game09{background-image: url("{% static 'images/games/cover/Games/Boxing.jpg' %}");}
+#game10{background-image: url("{% static 'images/games/cover/Games/Breaking.jpg' %}");}
+#game11{background-image: url("{% static 'images/games/cover/Games/CanoeSlalom.jpg' %}");}
+#game12{background-image: url("{% static 'images/games/cover/Games/CanoeSprint.jpg' %}");}
+#game13{background-image: url("{% static 'images/games/cover/Games/CyclingBMXFreeStyle.jpg' %}");}
+#game14{background-image: url("{% static 'images/games/cover/Games/CyclingBMXRace.jpg' %}");}
+#game15{background-image: url("{% static 'images/games/cover/Games/CyclingMountainBike.jpg' %}");}
+#game16{background-image: url("{% static 'images/games/cover/Games/CyclingRoad.jpg' %}");}
+#game17{background-image: url("{% static 'images/games/cover/Games/CyclingTrack.jpg' %}");}
+#game18{background-image: url("{% static 'images/games/cover/Games/Diving.jpg' %}");}
+#game19{background-image: url("{% static 'images/games/cover/Games/Equestrian.jpg' %}");}
+#game20{background-image: url("{% static 'images/games/cover/Games/Fencing.jpg' %}");}
+#game21{background-image: url("{% static 'images/games/cover/Games/Football.jpg' %}");}
+#game22{background-image: url("{% static 'images/games/cover/Games/Golf.jpg' %}");}
+#game23{background-image: url("{% static 'images/games/cover/Games/Handball.jpg' %}");}
+#game24{background-image: url("{% static 'images/games/cover/Games/Hockey.jpg' %}");}
+#game25{background-image: url("{% static 'images/games/cover/Games/Judo.jpg' %}");}
+#game26{background-image: url("{% static 'images/games/cover/Games/Marathon_Swimming.jpg' %}");}
+#game27{background-image: url("{% static 'images/games/cover/Games/Pentathlon.jpg' %}");}
+#game28{background-image: url("{% static 'images/games/cover/Games/Rhythmic_gymnastics.jpg' %}");}
+#game29{background-image: url("{% static 'images/games/cover/Games/Rowing.jpg' %}");}
+#game30{background-image: url("{% static 'images/games/cover/Games/Rugby.jpg' %}");}
+#game31{background-image: url("{% static 'images/games/cover/Games/Sailing.jpg' %}");}
+#game32{background-image: url("{% static 'images/highlights/Yusuf.jpg' %}");}
+#game33{background-image: url("{% static 'images/games/cover/Games/SkateBoarding.jpg' %}");}
+#game34{background-image: url("{% static 'images/games/cover/Games/SportClimbing.jpg' %}");}
+#game35{background-image: url("{% static 'images/games/cover/Games/Surfing.jpg' %}");}
+#game36{background-image: url("{% static 'images/games/cover/Games/Swimming.jpg' %}");}
+#game37{background-image: url("{% static 'images/games/cover/Games/TableTennis.jpg' %}");}
+#game38{background-image: url("{% static 'images/games/cover/Games/Taekwondo.jpg' %}");}
+#game39{background-image: url("{% static 'images/games/cover/Games/Tennis.jpg' %}");}
+#game40{background-image: url("{% static 'images/games/cover/Games/Traiathlon.jpg' %}");}
+#game41{background-image: url("{% static 'images/games/cover/Games/Trampoline.jpg' %}");}
+#game42{background-image: url("{% static 'images/games/cover/Games/Volleyball.jpg' %}");}
+#game43{background-image: url("{% static 'images/games/cover/Games/Waterpolo.jpg' %}");}
+#game44{background-image: url("{% static 'images/games/cover/Games/Weightlifting.jpg' %}");}
+#game45{background-image: url("{% static 'images/games/cover/Games/Wrestling.jpg' %}");}
+</style>    
+
+
+<section class="search">
+    <form action="">
+        <i class="fas fa-search"></i>
+        <input type="text" id="searchbox" placeholder="Search for your favourite games of Olympics" onkeyup="search()">    
+    </form>
+</section>
+<div class="game-cards" id="game-cards">
+    <div class="gamecard" id="game01">
+        <a href="{% url 'gamesD' %}#Archery"><h2>Archery</h2></a>
+    </div>
+    <div class="gamecard" id="game02">
+        <a href="{% url 'gamesD' %}#Artistic-Gymnastics"><h2>Artistic Gymnastics</h2></a>
+    </div>
+    <div class="gamecard" id="game03">
+        <a href="{% url 'gamesD' %}#Artistic-Swimming"><h2>Artistic Swimming</h2></a>
+    </div>
+    <div class="gamecard" id="game04">
+        <a href="{% url 'gamesD' %}#Athletics"><h2>Athletics</h2></a>
+    </div>
+    <div class="gamecard" id="game05">
+        <a href="{% url 'gamesD' %}#Badminton"><h2>Badminton</h2></a>
+    </div>
+    <div class="gamecard" id="game06">
+        <a href="{% url 'gamesD' %}#Basketball"><h2>Basketball</h2></a>
+    </div>
+    <div class="gamecard" id="game07">
+        <a href="{% url 'gamesD' %}#Basketball-3x3"><h2>Basketball 3x3</h2></a>
+    </div>
+    <div class="gamecard" id="game08">
+        <a href="{% url 'gamesD' %}#Beach-Volleyball"><h2>Beach Volleyball</h2></a>
+    </div>
+    <div class="gamecard" id="game09">
+        <a href="{% url 'gamesD' %}#Boxing"><h2>Boxing</h2></a>
+    </div>
+    <div class="gamecard" id="game10">
+        <a href="{% url 'gamesD' %}#Breaking"><h2>Breaking</h2></a>
+    </div>
+    <div class="gamecard" id="game11">
+        <a href="{% url 'gamesD' %}#Canoe-Slalom"><h2>Canoe Slalom</h2></a>
+    </div>
+    <div class="gamecard" id="game12">
+        <a href="{% url 'gamesD' %}#Canoe-Sprint"><h2>Canoe Sprint</h2></a>
+    </div>
+    <div class="gamecard" id="game13">
+        <a href="{% url 'gamesD' %}#Cycling-BMX-Freestyle"><h2>Cycling BMX Freestyle</h2></a>
+    </div>
+    <div class="gamecard" id="game14">
+        <a href="{% url 'gamesD' %}#Cycling-BMX-Racing"><h2>Cycling BMX Racing</h2></a>
+    </div>
+    <div class="gamecard" id="game15">
+        <a href="{% url 'gamesD' %}#Cycling-Mountain-Bike"><h2>Cycling Mountain Bike</h2></a>
+    </div>
+    <div class="gamecard" id="game16">
+        <a href="{% url 'gamesD' %}#Cycling-Road"><h2>Cycling Road</h2></a>
+    </div>
+    <div class="gamecard" id="game17">
+        <a href="{% url 'gamesD' %}#Cycling-Track"><h2>Cycling Track</h2></a>
+    </div>
+    <div class="gamecard" id="game18">
+        <a href="{% url 'gamesD' %}#Diving"><h2>Diving</h2></a>
+    </div>
+    <div class="gamecard" id="game19">
+        <a href="{% url 'gamesD' %}#Equestrian"><h2>Equestrian</h2></a>
+    </div>
+    <div class="gamecard" id="game20">
+        <a href="{% url 'gamesD' %}#Fencing"><h2>Fencing</h2></a>
+    </div>
+    <div class="gamecard" id="game21">
+        <a href="{% url 'gamesD' %}#Football"><h2>Football</h2></a>
+    </div>
+    <div class="gamecard" id="game22">
+        <a href="{% url 'gamesD' %}#Golf"><h2>Golf</h2></a>
+    </div>
+    <div class="gamecard" id="game23">
+        <a href="{% url 'gamesD' %}#Handball"><h2>Handball</h2></a>
+    </div>
+    <div class="gamecard" id="game24">
+        <a href="{% url 'gamesD' %}#Hockey"><h2>Hockey</h2></a>
+    </div>
+    <div class="gamecard" id="game25">
+        <a href="{% url 'gamesD' %}#Judo"><h2>Judo</h2></a>
+    </div>
+    <div class="gamecard" id="game26">
+        <a href="{% url 'gamesD' %}#Marathon-Swimming"><h2>Marathon Swimming</h2></a>
+    </div>
+    <div class="gamecard" id="game27">
+        <a href="{% url 'gamesD' %}#Modern-Pentathlon"><h2>Modern Pentathlon</h2></a>
+    </div>
+    <div class="gamecard" id="game28">
+        <a href="{% url 'gamesD' %}#Rhythmic-Gymnastics"><h2>Rhythmic Gymnastics</h2></a>
+    </div>
+    <div class="gamecard" id="game29">
+        <a href="{% url 'gamesD' %}#Rowing"><h2>Rowing</h2></a>
+    </div>
+    <div class="gamecard" id="game30">
+        <a href="{% url 'gamesD' %}#Rugby-Sevens"><h2>Rugby Sevens</h2></a>
+    </div>
+    <div class="gamecard" id="game31">
+        <a href="{% url 'gamesD' %}#Sailing"><h2>Sailing</h2></a>
+    </div>
+    <div class="gamecard" id="game32">
+        <a href="{% url 'gamesD' %}#Shooting"><h2>Shooting</h2></a>
+    </div>
+    <div class="gamecard" id="game33">
+        <a href="{% url 'gamesD' %}#Skateboarding"><h2>Skateboarding</h2></a>
+    </div>
+    <div class="gamecard" id="game34">
+        <a href="{% url 'gamesD' %}#Sport-Climbing"><h2>Sport Climbing</h2></a>
+    </div>
+    <div class="gamecard" id="game35">
+        <a href="{% url 'gamesD' %}#Surfing"><h2>Surfing</h2></a>
+    </div>
+    <div class="gamecard" id="game36">
+        <a href="{% url 'gamesD' %}#Swimming"><h2>Swimming</h2></a>
+    </div>
+    <div class="gamecard" id="game37">
+        <a href="{% url 'gamesD' %}#Table-Tennis"><h2>Table Tennis</h2></a>
+    </div>
+    <div class="gamecard" id="game38">
+        <a href="{% url 'gamesD' %}#Taekwondo"><h2>Taekwondo</h2></a>
+    </div>
+    <div class="gamecard" id="game39">
+        <a href="{% url 'gamesD' %}#Tennis"><h2>Tennis</h2></a>
+    </div>
+    <div class="gamecard" id="game40">
+        <a href="{% url 'gamesD' %}#Trampoline"><h2>Trampoline</h2></a>
+    </div>
+    <div class="gamecard" id="game41">
+        <a href="{% url 'gamesD' %}#Triathlon"><h2>Triathlon</h2></a>
+    </div>
+    <div class="gamecard" id="game42">
+        <a href="{% url 'gamesD' %}#Volleyball"><h2>Volleyball</h2></a>
+    </div>
+    <div class="gamecard" id="game43">
+        <a href="{% url 'gamesD' %}#Water-Polo"><h2>Water Polo</h2></a>
+    </div>
+    <div class="gamecard" id="game44">
+        <a href="{% url 'gamesD' %}#Weightlifting"><h2>Weightlifting</h2></a>
+    </div>
+    <div class="gamecard" id="game45">
+        <a href="{% url 'gamesD' %}#Wrestling"><h2>Wrestling</h2></a>
+    </div>    
+</div>
+<script>
+    const search = () => { 
+        const searchBox = document.getElementById("searchbox").value.toUpperCase();
+        const game_cards = document.getElementById("game-cards");
+        const gamecard = game_cards.getElementsByClassName("gamecard");
+        
+        for (let i = 0; i < gamecard.length; i++) {
+            let match = gamecard[i].getElementsByTagName('h2')[0];
+            
+            if (match) {
+                let textvalue = match.textContent || match.innerHTML;
+                
+                gamecard[i].style.display = textvalue.toUpperCase().indexOf(searchBox) > -1 ? "" : "none";
+            }
+        }
+    }
+</script>
+{% endblock content%}

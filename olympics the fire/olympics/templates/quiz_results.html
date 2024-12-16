@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center">Quiz Results</h2>
+    
+    <div class="text-center">
+        <h4>Your Score: {{ score }} out of {{ correct_answers|length }}</h4>
+    </div>
+
+    <div class="mt-4">
+        <h5>Questions and Answers:</h5>
+        <ul class="list-group">
+            {% for answer in correct_answers %}
+            <li class="list-group-item">
+                <strong>Question:</strong> {{ answer.question }}
+                <br>
+                <strong>Your Answer:</strong> {{ answer.user_answer }} <br>
+                <strong>Correct Answer:</strong> {{ answer.correct_answer }} <br>
+                <strong>Fact:</strong> {{ answer.fact }}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="text-center mt-5" style="margin-top: -30px; margin-bottom: 10">
+        <a href="{% url 'take_quiz' %}" class="btn btn-primary">Take Another Quiz</a>
+        <a href="{% url 'view_past_quizzes' %}" class="btn btn-secondary">View Past Quizzes</a>
+    </div>
+</div>
+{% endblock %}

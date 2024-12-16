@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Closing Ceremony Summary{% endblock title %}
+{% block content %}
+<style>
+    h1, h2, h3, h4, h5, h6, div {
+        margin-left: 20px;
+        margin-right: 10px;
+    }
+
+    .highlight-container {
+        display: flex;
+        align-items: center;
+        padding: 20px;
+        max-width: 1300px;
+        margin: 30px auto;
+    }
+
+    .highlight-image {
+        width: 45%;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+    .highlight-text {
+        color: white;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 20px;
+        width: 50%;
+        border-radius: 8px;
+        margin-left: 20px;
+        font-size: 16px;
+    }
+
+    @media (max-width: 1024px) {
+        .highlight-container {
+            flex-direction: column;
+        }
+        .highlight-image, .highlight-text {
+            width: 100%;
+            margin-left: 0;
+        }
+        .highlight-image {
+            height: 250px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .highlight-image {
+            height: 200px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .highlight-text {
+            padding: 10px;
+            font-size: 14px;
+        }
+        .highlight-image {
+            height: 180px;
+        }
+    }
+</style>
+
+<div>
+    <h1 style="text-align: center;">2024 Paris Olympics Closing Ceremony</h1>
+    <p style="text-align: center;">A Celebration of Diversity and Solidarity</p>
+    <br>
+
+    <div class="highlight-container">
+        <p class="highlight-text">The closing ceremony of the 2024 Summer Olympics took place at Stade de France on 11 August 2024, showcasing cultural presentations and concluding remarks.</p>
+        <img src="{% static 'images/closing/Pic1.jpg' %}" class="highlight-image" alt="Olympics Image">
+    </div>
+    
+    <div class="highlight-container">
+        <img src="{% static 'images/closing/Pic2.jpg' %}" class="highlight-image" alt="Olympics Image">
+        <p class="highlight-text">The program began on a solemn note, featuring French singer Zaho de Sagazan and a choir singing "Sous le ciel de Paris."</p>
+    </div>
+    
+    <div class="highlight-container">
+        <p class="highlight-text">Katie Ledecky and other athletes participated in a vibrant parade of nations, celebrating athletic excellence and unity.</p>
+        <img src="{% static 'images/closing/Pic3.jpg' %}" class="highlight-image" alt="Olympics Image">
+    </div>
+    
+    <div class="highlight-container">
+        <img src="{% static 'images/closing/Pic4.jpg' %}" class="highlight-image" alt="Olympics Image">
+        <p class="highlight-text">Tom Cruise made a dramatic appearance for the Olympic flag handoff to Los Angeles, showcasing the next host city's excitement.</p>
+    </div>
+    
+    <div class="highlight-container">
+        <p class="highlight-text">Performances by Billie Eilish and other renowned artists highlighted the festivities of the closing ceremony, leaving a lasting impression.</p>
+        <img src="{% static 'images/closing/Pic5.jpg' %}" class="highlight-image" alt="Olympics Image">
+    </div>
+</div>
+<br>
+
+{% endblock content %}

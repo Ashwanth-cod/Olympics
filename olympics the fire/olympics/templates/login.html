@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Olympic Login{% endblock title %}
+
+{% block content %}
+
+<style>
+    body {
+        z-index: -999999;
+        width: 100%;
+        height: 200px;
+        background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+    }
+
+    .card {
+        margin-top: 100px;
+        border-radius: 1rem;
+        padding: 15px 20px;
+        margin-right: 500px;
+        width: 400px;
+        height: auto;
+    }
+
+    .login-container {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        margin-top: -60px;
+    }
+
+    .form-outline {
+        text-align: left;
+    }
+
+    .card-body {
+        padding: 10px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .btn {
+        margin-top: 10px;
+    }
+
+    @media (max-width: 768px) {
+        .card {
+            height: 450px;
+            margin: 20px;
+            margin-top: 60px;
+            width: auto;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+        }
+        .down{
+            margin-bottom: 0px;
+            margin-top: -60px;
+        }
+    }
+</style>
+
+<section class="gradient-custom vh-100">
+    <div class="container login-container">
+        <div class="row d-flex justify-content-center align-items-center">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card bg-dark text-white">
+                    <div class="card-body text-center">
+                        <div class="mb-4 pb-3"> 
+                            <h2 class="fw-bold mb-3 text-uppercase">Login</h2>
+                            <p class="text-white-50 mb-4">Please enter your credentials!</p>
+                            <form method="POST" action="{% url 'login' %}?next={{ request.GET.next }}">
+                                    {% csrf_token %}
+                                <div class="form-outline form-white mb-3">
+                                    <label class="form-label" for="username">Username</label>
+                                    <input type="text" id="username" name="username" class="form-control form-control-lg" required />
+                                </div>
+                                
+                                <div class="form-outline form-white mb-3">
+                                    <label class="form-label" for="password">Password</label>
+                                    <input type="password" id="password" name="password" class="form-control form-control-lg" required />
+                                </div>
+
+                                <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
+                            </form>
+                        </div>
+
+                        <div class="down">
+                            <p class="mb-0">Don't have an account? <a href="{% url 'signup' %}" class="text-white-50 fw-bold">Sign Up</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

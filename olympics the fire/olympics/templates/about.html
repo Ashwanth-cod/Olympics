@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{% block title %}About the Olympics{% endblock title %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <h1 class="mb-4 text-center">About the Paris 2024 Olympics</h1>
+            <p class="lead text-center">
+                The Paris 2024 Olympics marks a historic return of the games to Paris, which last hosted the Olympics 100 years ago in 1924. 
+                This event will bring together athletes from across the globe, celebrating excellence, sportsmanship, and the Olympic spirit.
+            </p>
+            <hr>
+            <h2 class="mb-3">History of the Olympics</h2>
+            <p>
+                The Olympic Games have a rich history dating back to ancient Greece, where they were held in Olympia as part of a festival in honor of the god Zeus.
+                The modern Olympics were revived in 1896 by Baron Pierre de Coubertin, bringing together athletes from all over the world to compete in various sports.
+            </p>
+            <p>
+                The Summer and Winter Olympics occur every four years, featuring a variety of sports that push human limits and celebrate global unity.
+            </p>
+            <div class="text-center my-4">
+                <img src="{% static 'images/about/about page images/ancient.jfif' %}" alt="Paris 2024 Olympics" class="img-fluid rounded shadow-lg" style="max-width: 100%;">
+            </div>
+            <hr>
+
+            <h2 class="mb-3">Ancient vs Modern Olympics</h2>
+            <div class="card mb-4 shadow-lg">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5 class="text-center">Ancient Olympics</h5>
+                            <p>
+                                The ancient Olympic Games were held in Olympia, Greece, starting in 776 BC. They were a religious festival in honor of Zeus and featured only a few events.
+                            </p>
+                            <p>
+                                Competitors were exclusively freeborn Greek men, and winners received olive wreaths as prizes. The games promoted unity among the Greek city-states.
+                            </p>
+                            <p>
+                                Events were held every four years, coinciding with the Olympic truce, a period during which all conflicts were suspended.
+                            </p>
+                            <p>
+                                The ancient games also celebrated art and culture, showcasing events like poetry recitals and musical performances.
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+                            <h5 class="text-center">Modern Olympics</h5>
+                            <p>
+                                The modern Olympic Games began in 1896, inspired by the ancient traditions. They are now a global celebration of sport.
+                            </p>
+                            <p>
+                                Unlike their ancient predecessors, the modern Olympics are inclusive, allowing all genders and nationalities to participate.
+                            </p>
+                            <p>
+                                The games are held every four years, alternating between Summer and Winter Olympics, symbolizing peace and unity.
+                            </p>
+                            <p>
+                                The modern Olympics emphasize sportsmanship and fair play, highlighted by the Olympic oath taken by athletes.
+                            </p>
+                        </div>
+                    </div>
+                    <div id="additionalInfo" class="mt-3">
+                        <h6 class="text-center">Additional Insights</h6>
+                        <p>
+                            The ancient Olympics were a celebration of Greek culture, while the modern Olympics embrace global unity and competition.
+                        </p>
+                        <p>
+                            Today’s games reflect societal changes and include numerous events, emphasizing the continuity of this cherished tradition.
+                        </p>
+                        <p>
+                            Major global issues like sustainability and equality are increasingly part of the Olympic agenda.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+            <section class="quiz-section py-5 bg-light" style="border-radius: 10px;">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8">
+                            <div class="card quiz-card text-center shadow-lg">
+                                <div class="card-body">
+                                    <h5 class="card-title fw-bold">Test Your Olympic Knowledge!</h5>
+                                    <p class="card-text">
+                                        Challenge yourself with fun quizzes on Olympic history, athletes, and events.
+                                    </p>
+                                    <div class="row" style="margin-top: 20px;">
+                                        <div class="col">
+                                            <a href="{% url 'take_quiz' %}" class="btn btn-primary btn-lg px-4" style="margin-bottom:  20px;">Take Quiz</a>
+                                        </div>
+                                        <div class="col">
+                                            <a href="{% url 'dashboard' %}" class="btn btn-primary btn-lg px-4">Quiz Dashboard</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('learnMoreBtn').onclick = function() {
+        var additionalInfo = document.getElementById('additionalInfo');
+        additionalInfo.style.display = additionalInfo.style.display === 'none' ? 'block' : 'none';
+    };
+</script>
+
+{% endblock content %}

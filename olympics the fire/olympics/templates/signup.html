@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Olympic Sign Up{% endblock title %}
+
+{% block content %}
+
+<style>
+    body {
+        z-index: -999999;
+        width: 100%;
+        height: 200px;
+        background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+    }
+
+    .card {
+        border-radius: 1rem;
+        padding: 10px 15px;
+        padding-top: 0;
+    }
+
+    .form-outline {
+        text-align: left;
+    }
+
+    .card-body {
+        padding: 10px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .btn {
+        margin-top: 10px;
+    }
+
+    .text-white-50 {
+        margin-bottom: 20px;
+    }
+
+    .image-container img {
+        border-radius: 1rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .container {
+        height: 100%;
+    }
+
+    .password-requirements {
+        font-size: 0.9rem;
+        color: #ddd;
+        margin-top: 5px;
+    }
+
+    @media (max-width: 768px) {
+        .gradient-custom {
+            height: auto;
+        }
+
+        .card {
+            margin: 10px;
+        }
+    }
+</style>
+
+<section class="gradient-custom">
+    <div class="container h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-md-6 col-lg-5 d-flex justify-content-center">
+                <div class="card">
+                    <div class="image-container">
+                        <img src="{% static 'images/random/id1.png' %}" alt="Olympics" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-5 d-flex justify-content-center">
+                <div class="card bg-dark text-white">
+                    <div class="card-body text-center">
+                        <div class="mb-4 pb-0">
+                            <h2 class="fw-bold mb-3 text-uppercase">Sign Up</h2>
+                            <form method="post">
+                                {% csrf_token %}
+                                <div class="row">
+                                    <div class="form-outline form-white mb-3 col">
+                                        <label class="form-label" for="firstName">First Name</label>
+                                        <input type="text" id="firstName" name="first_name" class="form-control form-control-lg" required />
+                                    </div>
+                                    <div class="form-outline form-white mb-3 col">
+                                        <label class="form-label" for="lastName">Last Name</label>
+                                        <input type="text" id="lastName" name="last_name" class="form-control form-control-lg" required />
+                                    </div>
+                                </div>
+                                <div class="form-outline form-white mb-3">
+                                    <label class="form-label" for="username">Username</label>
+                                    <input type="text" id="username" name="username" class="form-control form-control-lg" required />
+                                </div>
+                                <div class="form-outline form-white mb-3">
+                                    <label class="form-label" for="password">Password</label>
+                                    <input type="password" id="password" name="password" class="form-control form-control-lg" required />
+                                    <div class="password-requirements">
+                                        Your password must be at least 8 characters long and include at least one number, one uppercase letter, and one special character (e.g., !@#$%^&*).
+                                    </div>
+                                </div>
+                                <div class="form-outline form-white mb-3">
+                                    <label class="form-label" for="confirmPassword">Confirm Password</label>
+                                    <input type="password" id="confirmPassword" name="confirm_password" class="form-control form-control-lg" required />
+                                </div>
+                                <button class="btn btn-outline-light btn-lg px-5" type="submit">Sign Up</button>
+                            </form>
+                            <div>
+                                <p class="mb-0">Already have an account? <a href="{% url 'login' %}" class="text-white-50 fw-bold">Login</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

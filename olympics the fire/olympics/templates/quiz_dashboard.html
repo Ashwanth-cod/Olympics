@@ -1,0 +1,187 @@
+{% extends 'base.html' %}
+
+{% block title %}Quiz Dashboard{% endblock title %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="mb-4">Welcome to the Dashboard, {{ user.first_name }}!</h1>
+    <p class="mb-4">You can take a quiz, view your past quiz attempts, see your profile details, or play a game.</p>
+    
+    <section class="container mt-5">
+        <div class="row mb-4">
+            <div class="col-md-12 text-center">
+                <h3 class="text-info">Your Activity</h3>
+                <p class="text-muted">Track your progress and quiz history!</p>
+            </div>
+        </div>
+    </section>
+    
+    <div class="row mb-4">
+        <div class="col-md-4" style="margin-bottom: 10px;">
+            <a href="{% url 'take_quiz' %}" class="btn btn-primary btn-lg w-100">
+                <i class="bi bi-pencil-fill"></i> Take a Quiz
+            </a>
+        </div>
+        <div class="col-md-4" style="margin-bottom: 10px;">
+            <a href="{% url 'view_past_quizzes' %}" class="btn btn-primary btn-lg w-100">
+                <i class="bi bi-clock-history"></i> View Past Quizzes
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a href="{% url 'logout' %}" class="btn btn-danger btn-lg w-100">
+                <i class="bi bi-box-arrow-right"></i> Log out
+            </a>
+        </div>
+    </div>
+
+    <!-- User Profile -->
+    <div class="card mb-4 shadow">
+        <div class="card-header">
+            <h5><i class="bi bi-person-fill"></i> User Profile</h5>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <p><strong>First Name:</strong> {{ user.first_name }}</p>
+                    <p><strong>Last Name:</strong> {{ user.last_name }}</p>
+                    <p><strong>Username:</strong> {{ user.username }}</p>
+                </div>
+                <div class="col-md-6">
+                    <p><strong>Member Since:</strong> {{ user.date_joined|date:"d F, Y" }}</p>
+                    <p><strong>Last Login:</strong> {{ user.last_login|date:"d F, Y" }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quiz Statistics -->
+    <div class="card mb-4 shadow">
+        <div class="card-header">
+            <h5><i class="bi bi-trophy-fill"></i> Your Quiz Statistics</h5>
+        </div>
+        <div class="card-body">
+            <ul class="list-group">
+                <li class="list-group-item">Total Quizzes Taken: <strong>{{ total_quizzes }}</strong></li>
+                <li class="list-group-item">
+                    Average Score: <strong>{% if average_score %}{{ average_score }} / 5{% else %}N/A{% endif %}</strong>
+                </li>
+                <li class="list-group-item">
+                    Best Score: <strong>{% if best_score %}{{ best_score }} / 5{% else %}N/A{% endif %}</strong>
+                </li>
+                <li class="list-group-item">
+                    Comments: <strong>
+                    {% if average_score == 5 %} Outstanding
+                    {% elif average_score == 4 %} Excellent
+                    {% elif average_score == 3 %} Very Good
+                    {% elif average_score == 2 %} Okay
+                    {% elif average_score == 1 %} Needs Improvement
+                    {% elif average_score == 0 %} Should Work Much Harder
+                    {% else %} No score available
+                    {% endif %}
+                    </strong>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Recent Quizzes -->
+    <div class="card mb-4 shadow">
+        <div class="card-header">
+            <h5><i class="bi bi-list-check"></i> Recent Quizzes</h5>
+        </div>
+        <div class="card-body">
+            <ul class="list-group">
+                {% for quiz in recent_quizzes %}
+                    <li class="list-group-item">
+                        <a href="{% url 'quiz_results' quiz_attempt_id=quiz.id %}">Quiz: {{ quiz.name }}</a> - Score: {{ quiz.score }} / 5
+                    </li>
+                {% empty %}
+                    <li class="list-group-item">No recent quizzes found.</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <div class="card mb-4 shadow">
+        <div class="card-header">
+            <h5><i class="bi bi-chevron-bar-down"></i> Hurdle Run</h5>
+        </div>
+        <div class="card-body">
+            <p class="text-muted">Run, jump, and avoid obstacles in the Hurdle Run game! Test your reflexes and aim for a high score.</p>
+            
+            <!-- Detailed Section for Hurdle Run -->
+            <div class="card mt-4">
+                <div class="card-header">
+                    <h6>Game Details & Instructions</h6>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li><strong>Objective:</strong> Jump over the hurdles and avoid hitting them to increase your score.</li>
+                        <li><strong>Controls:</strong> Press the spacebar to jump over obstacles.</li>
+                        <li><strong>Scoring:</strong> Each hurdle you successfully pass earns you points. The longer you run, the higher your score.</li>
+                        <li><strong>Tips:</strong> Time your jumps carefully. Hitting a hurdle will end your run.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Hurdle Run Stats Section -->
+            <div class="card mt-4">
+                <div class="card-header">
+                    <h6>Your Hurdle Run Stats</h6>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group">
+                        <li class="list-group-item">High Score: <strong>{% if high_score %}{{ high_score }}{% else %}N/A{% endif %}</strong></li>
+                        <li class="list-group-item">Number of Attempts: <strong>{{ attempt_count|default:"0" }}</strong></li>
+                        <li class="list-group-item">
+                            All Attempt Scores:
+                            <button type="button" class="btn btn-outline-primary" onclick="show()" aria-expanded="false">Show All Attempt Scores</button>
+                            <ul class="score-list" style="opacity: 0;">
+                                {% if all_score_objects %}
+                                    {% for score_object in all_score_objects %}
+                                        <li>
+                                            Attempt {{ forloop.counter }}: {{ score_object.score }} points
+                                            <form method="POST" action="{% url 'delete_score' score_id=score_object.id %}" style="display:inline;">
+                                                {% csrf_token %}
+                                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this score?');">Delete</button>
+                                            </form>
+                                        </li>
+                                    {% endfor %}
+                                {% else %}
+                                    <li>No attempts recorded.</li>
+                                {% endif %}
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <!-- Clear Score Button -->
+                    <form method="POST" action="{% url 'clear_scores' %}" class="mt-3">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-warning w-100" onclick="return confirm('Are you sure you want to clear all scores?');">Clear All Scores</button>
+                    </form>
+                </div>
+            </div>
+            
+            <a href="{% url 'game' %}" class="btn btn-success w-100 mt-3">Play Hurdle Run</a>
+        </div>
+    </div>
+</div>
+
+<!-- Add Bootstrap Icons CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+<script>
+    function show() {
+        const scoreList = document.querySelector('.score-list');
+        const button = document.querySelector('button[onclick="show()"]');
+        scoreList.style.opacity = scoreList.style.opacity === '1' ? '0' : '1';
+        button.setAttribute('aria-expanded', scoreList.style.opacity === '1');
+    }
+</script>
+    
+<style>
+    .score-list {
+        transition: opacity 0.5s ease;
+    }
+</style> 
+{% endblock content %}

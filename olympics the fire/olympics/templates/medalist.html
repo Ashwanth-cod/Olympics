@@ -1,0 +1,249 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Olympic Medallist{% endblock title %}
+{% block content %}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f8f9fa;
+        margin: 0;
+        padding: 20px;
+    }
+    .container {
+        max-width: 1000px;
+        margin: auto;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+    }
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #007BFF;
+    }
+    .controls {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+        gap: 10px;
+    }
+    input, select {
+        padding: 10px;
+        border: 2px solid #007BFF;
+        border-radius: 5px;
+        font-size: 16px;
+        width: 200px;
+        transition: border-color 0.3s;
+        outline: none;
+    }
+    input:focus, select:focus {
+        border-color: #0056b3;
+    }
+    .sort-button, .toggle-btn {
+        background: black;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        padding: 10px;
+    }
+    .sort-button:hover, .toggle-btn:hover {
+        background: #333;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+    th, td {
+        padding: 10px;
+        text-align: center;
+        border-bottom: 1px solid #ddd;
+    }
+    th {
+        background: #f4f4f4;
+    }
+    tr:hover {
+        background: #f1f1f1;
+    }
+    .details {
+        display: none;
+        background: #f9f9f9;
+        padding: 10px;
+        border-radius: 5px;
+    }
+    .flag-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    @media (max-width: 768px) {
+        .medal-symbol {
+            display: none;
+        }
+        th:nth-child(3),
+        th:nth-child(4),
+        th:nth-child(5) {
+            display: none;
+        }
+        td:nth-child(3),
+        td:nth-child(4),
+        td:nth-child(5) {
+            display: none;
+        }
+        .flag-container {
+            justify-content: flex-start;
+        }
+    }
+</style>
+<div class="container">
+    <h1>Olympic Medallist</h1>
+    <div class="btn-group" style="margin-left: 35%;">
+        <a href="{% url 'countriesWinners' %}" class="btn btn-secondary" aria-current="page">MEDAL TABLE</a>
+        <a href="{% url 'medal' %}" class="btn btn-success active">MEDALLIST</a>
+    </div>
+
+    <div class="controls" style="margin-top: 10px;">
+        <input type="text" id="search" placeholder="Search for a player..." />
+        <select id="sort">
+            <option value="total">Total Medals</option>
+            <option value="name">Name</option>
+            <option value="gold">Gold Medals</option>
+            <option value="silver">Silver Medals</option>
+            <option value="bronze">Bronze Medals</option>
+        </select>
+        <button id="toggleSort" class="sort-button"><img src="{% static 'images/icons/sort.svg' %}" alt=""></button>
+        <button id="expandCollapse" class="sort-button">+</button>
+    </div>
+
+    <table id="medal-table">
+        <thead>
+            <tr>
+                <th>Country</th>
+                <th>Name</th>
+                <th><img src="{% static 'images/icons/gold.svg' %}"></th>
+                <th><img src="{% static 'images/icons/silver.svg' %}"></th>
+                <th><img src="{% static 'images/icons/bronze.svg' %}"></th>
+                <th><img src="{% static 'images/icons/medalAll.svg' %}"></th>
+                <th>Details</th>
+            </tr>
+        </thead>
+        <tbody id="medal-table-body"></tbody>
+    </table>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const tableBody = document.getElementById('medal-table-body');
+        const expandCollapseButton = document.getElementById('expandCollapse');
+        const toggleSortButton = document.getElementById('toggleSort');
+        const searchInput = document.getElementById('search');
+        let players = [], expandedRows = {}, sortOrder = 'asc';
+        let expandTriggered = false;
+
+        const sortSelect = document.getElementById('sort');
+
+        fetch("{% static 'medalWinnersData.json' %}")
+            .then(response => response.json())
+            .then(data => {
+                players = data.players.map(({ name, team_code, sport, three_letter_id, gold, silver, bronze, events }) => ({
+                    name, code2: team_code, sport, code3: three_letter_id.toUpperCase(),
+                    totalGold: gold, totalSilver: silver, totalBronze: bronze,
+                    totalMedals: gold + silver + bronze,
+                    events: events.map(({ event_name, medal_won }) => ({ name: event_name, medal: medal_won }))
+                }));
+                renderTable(players);
+                searchInput.addEventListener('input', updateTable);
+                sortSelect.addEventListener('change', () => {
+                    if (!expandTriggered) {
+                        updateTable();
+                        highlightSortedColumn();
+                    }
+                    expandTriggered = false;
+                });
+                expandCollapseButton.addEventListener('click', toggleExpandCollapse);
+                toggleSortButton.addEventListener('click', () => {
+                    sortOrder = sortOrder === 'asc' ? 'desc' : 'asc';
+                    updateTable();
+                });
+                toggleSortButton.innerHTML = sortOrder === 'asc' ? '&#8593;' : '&#8595;';
+            })
+            .catch(console.error);
+
+        function updateTable() {
+            const filteredPlayers = players.filter(player => player.name.toLowerCase().includes(searchInput.value.toLowerCase()));
+            const sortedPlayers = sortTable(filteredPlayers, sortSelect.value, sortOrder);
+            renderTable(sortedPlayers);
+        }
+
+        function renderTable(players) {
+            tableBody.innerHTML = players.map(player => {
+                const detailsVisible = expandedRows[player.name] ? 'table-row' : 'none';
+                const eventsRows = player.events.map(event => `
+                    <tr>
+                        <td>${player.sport}</td>
+                        <td>${event.name}</td>
+                        <td>${event.medal === 'g' ? "<img src={% static 'images/icons/gold.svg' %}>" : ''}</td>
+                        <td>${event.medal === 's' ? "<img src={% static 'images/icons/silver.svg' %}>" : ''}</td>
+                        <td>${event.medal === 'b' ? "<img src={% static 'images/icons/bronze.svg' %}>" : ''}</td>
+                    </tr>`).join('');
+
+                return `
+                    <tr>
+                        <td><div class="flag-container"><span class="fi fi-${player.code2}" style="font-size: 24px; margin-right: 10px"></span><span>${player.code3}</span></div></td>
+                        <td>${player.name}</td>
+                        <td>${player.totalGold}</td>
+                        <td>${player.totalSilver}</td>
+                        <td>${player.totalBronze}</td>
+                        <td>${player.totalMedals}</td>
+                        <td><button class="toggle-btn" onclick="toggleDetails('${player.name}')">${expandedRows[player.name] ? '-' : '+'}</button></td>
+                    </tr>
+                    <tr class="details" style="display: ${detailsVisible}">
+                        <td colspan="6"><div><table><thead><tr><th>Sport</th><th>Event Name</th><th>Gold</th><th>Silver</th><th>Bronze</th></tr></thead><tbody>${eventsRows}</tbody></table></div></td>
+                    </tr>`;
+            }).join('');
+        }
+
+        function sortTable(players, criteria, order) {
+            return players.sort((a, b) => {
+                let comparison = 0;
+                if (criteria === 'total') {
+                    comparison = a.totalMedals - b.totalMedals;
+                } else if (criteria === 'name') {
+                    comparison = a.name.localeCompare(b.name);
+                } else if (criteria === 'gold') {
+                    comparison = a.totalGold - b.totalGold;
+                } else if (criteria === 'silver') {
+                    comparison = a.totalSilver - b.totalSilver;
+                } else if (criteria === 'bronze') {
+                    comparison = a.totalBronze - b.totalBronze;
+                }
+                return order === 'asc' ? comparison : -comparison;
+            });
+        }
+
+        function highlightSortedColumn() {
+            const headers = document.querySelectorAll('#medal-table th');
+            headers.forEach(header => header.classList.remove('sorted'));
+            const sortedHeaderIndex = Array.from(headers).findIndex(header => header.innerText.toLowerCase() === sortSelect.value);
+            if (sortedHeaderIndex >= 0) {
+                headers[sortedHeaderIndex].classList.add('sorted');
+            }
+        }
+
+        window.toggleDetails = function(name) {
+            expandTriggered = true;
+            expandedRows[name] = !expandedRows[name];
+            updateTable();
+        };
+
+        function toggleExpandCollapse() {
+            const detailsRows = document.querySelectorAll('.details');
+            const isAllExpanded = Array.from(detailsRows).every(row => row.style.display === 'table-row');
+            detailsRows.forEach(row => row.style.display = isAllExpanded ? 'none' : 'table-row');
+        }
+    });
+</script>
+{% endblock content %}

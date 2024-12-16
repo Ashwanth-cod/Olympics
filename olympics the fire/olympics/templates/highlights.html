@@ -1,0 +1,225 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Paris 2024 Olympic Highlights{% endblock title %}
+{% block content %}
+
+<style>
+    body {
+    background-color: #f8f9fa;
+}
+
+.highlight-container {
+    max-width: 1300px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+
+.highlight-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.highlight-image {
+    width: 50%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.highlight-text {
+    width: 50%;
+    padding-left: 20px;
+    color: #333;
+}
+
+h1, h2, h3 {
+    text-align: center;
+}
+
+@media (max-width: 1024px) {
+    .highlight-row {
+        flex-direction: column;
+    }
+    .highlight-image, .highlight-text {
+        width: 100%;
+        padding-left: 0;
+    }
+    .highlight-image {
+        height: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .highlight-image {
+        height: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .highlight-image {
+        height: 200px;
+    }
+    .highlight-text {
+        padding: 10px;
+    }
+    ul {
+        line-height: 30px;
+    }
+}
+
+</style>
+
+<div>
+    <h1>Events Highlights</h1>
+    
+    <h2 class="my-4">The Important Highlights of the Year</h2>
+
+    <div class="highlight-container">
+        <div class="highlight-row">
+            <div class="highlight-text">
+                <h3>New Olympic Sport Events</h3>
+                <p>The Paris 2024 Olympic Games feature 28 sports and introduced four exciting new ones: skateboarding, sport climbing, surfing, and breaking, reflecting the evolving nature of athletic competition. Athletes from all over the world gathered to showcase their talents, pushing the limits of human potential and sporting excellence.</p>
+            
+            </div>
+            <img src="{% static 'images/highlights/New_events.jpg' %}" class="highlight-image" alt="New Sport Events">
+
+        </div>
+    </div>
+
+
+    <div class="highlight-container">
+        <div class="highlight-row">
+            <img src="{% static 'images/highlights/Usa.jpg' %}" class="highlight-image" alt="Top Medals">
+            <div class="highlight-text">
+                <h3>USA maintains Olympic medal tally domination</h3>
+                <p>The USA topped the medal tally at the Paris 2024 Olympics with 126 medals.It took home 126 medals (40 gold, 42 silver, and 44 bronze)</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="highlight-container">
+        <div class="highlight-row">
+            <div class="highlight-text">
+                <h3>Rebecca Andrade's Historic Gold</h3>
+                <p>Brazilian gymnast Rebecca Andrade made history by winning gold in the women's all-around final, showcasing her extraordinary talent and dedication. Her stunning performances captivated audiences worldwide. As she ascended the podium, her fellow competitors, Simone Biles and Jordan Chiles, honored her with a respectful bow, demonstrating the sportsmanship that defines the Olympic spirit. Andrade’s victory not only marked a personal achievement but also a significant moment for Brazilian gymnastics on the global stage.</p>
+            </div>
+            <img src="{% static 'images/highlights/Rebacca.jpg' %}" class="highlight-image" alt="Rebecca Andrade">
+
+        </div>
+    </div>
+
+    <div class="highlight-container">
+        <div class="highlight-row">
+            <img src="{% static 'images/highlights/Yusuf.jpg' %}" class="highlight-image" alt="Yusuf Dikec">
+            <div class="highlight-text">
+                <h3>Yusuf Dikec's Viral Performance</h3>
+                <p>Turkish shooter Yusuf Dikec captivated audiences with his relaxed style during the 10m air pistol mixed team event. His calm demeanor, coupled with precision shooting, earned him a silver medal, making him a viral sensation and an inspiration for aspiring athletes worldwide. Dikec’s unique approach to the competition, focusing on mental composure and technique, highlighted the importance of psychological strength in sports.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="highlight-container">
+        <div class="highlight-row">
+            <div class="highlight-text">
+                <h3>Arshad Nadeem's Gold After 32 Years</h3>
+                <p>After a 32-year wait, Pakistan celebrated a triumphant moment as javelin thrower Arshad Nadeem secured gold with a record-breaking throw of 92.97 meters. Despite a no-throw on his first attempt, his determination shone through, marking a historic victory for the nation. Nadeem’s achievement not only fulfilled his personal dream but also reignited national pride in sports, showcasing the potential of Pakistani athletes on the world stage.</p>
+            </div>
+            <img src="{% static 'images/highlights/Arshad.jpg' %}" class="highlight-image" alt="Arshad Nadeem">
+        </div>
+    </div>
+
+    <div class="highlight-container">
+        <div class="highlight-row">
+            <img src="{% static 'images/highlights/phogat.jpg' %}" class="highlight-image" alt="Vinesh Phogat">
+            <div class="highlight-text">
+                <h3>Vinesh Phogat's Historic Journey</h3>
+                <p>Vinesh Phogat made headlines as the first Indian woman wrestler to reach an Olympic final. Despite facing disappointment due to disqualification for exceeding the weight limit by 100 grams, her journey reflects resilience and the ongoing struggle for women's recognition in sports. Phogat's perseverance, amidst various challenges over the years, has inspired countless young girls in India to pursue their sporting dreams.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="highlight-container">
+        <div class="highlight-row">
+            <div class="highlight-text">
+                <h3>Gabriel Medina's Gravity-Defying Performance</h3>
+                <p>Surfer Gabriel Medina left an indelible mark on the Games with a breathtaking display of skill and agility. His gravity-defying maneuvers and captivating performances brought excitement to the surfing events, embodying the thrill of water sports. Medina’s innovative approach to surfing, combining style with technical proficiency, captivated fans and showcased the dynamic nature of this new Olympic sport.</p>
+            </div>
+            <img src="{% static 'images/highlights/surfing.jpg' %}" class="highlight-image" alt="Gabriel Medina">
+        </div>
+    </div>
+
+    <div class="highlight-container">
+        <div class="highlight-row">
+            <img src="{% static 'images/highlights/Alessia.jpg' %}" class="highlight-image" alt="Alessia Maurelli">
+            <div class="highlight-text">
+                <h3>Alessia Maurelli's Proposal</h3>
+                <p>Alessia Maurelli, a seasoned rhythmic gymnast, received a heartfelt marriage proposal from her boyfriend just moments after stepping off the podium with her bronze medal. This touching moment exemplified the emotional highs of the Olympics beyond competition, symbolizing love and support in the life of an athlete. Maurelli’s journey through the Olympics, combined with this personal milestone, highlights the multifaceted lives of Olympic athletes.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="highlight-container">
+        <div class="highlight-row">
+            <div class="highlight-text">
+                <h3>Zhiying Zeng's Inspiring Debut</h3>
+                <p>At 58 years old, Zhiying Zeng made her Olympic debut in table tennis, becoming a symbol of perseverance and determination. A mother of two adult sons, her participation serves as an inspiring reminder that dreams can be pursued at any age. Zeng’s presence at the Games sparked conversations about age diversity in sports, encouraging individuals to follow their passions regardless of societal expectations.</p>
+            </div>
+            <img src="{% static 'images/highlights/Zeng.jpg' %}" class="highlight-image" alt="Zhiying Zeng">
+        </div>
+    </div>
+
+    <div class="highlight-container">
+        <div class="highlight-row">
+            <img src="{% static 'images/highlights/Korea.jpg' %}" class="highlight-image" alt="Korean Table Tennis">
+            <div class="highlight-text">
+                <h3>Unity on the Medal Podium</h3>
+                <p>Photos of North and South Korean table tennis players celebrating together on the medal podium captured global attention, reflecting a moment of unity amidst political tensions. Their collaboration in the mixed doubles, where South Korea won bronze and North Korea silver, resonated with audiences worldwide, highlighting the potential for sports to bridge divides and promote peace.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="highlight-container">
+        <div class="highlight-row">
+            <div class="highlight-text">
+                <h3>Mijian Lopez's Retirement Gesture</h3>
+                <p>Cuban wrestler Mijian Lopez announced his retirement from wrestling in an emotional moment by removing his shoes after defeating Chile's Yasmani Acosta Fernandez. This poignant gesture not only symbolizes his illustrious career but also reflects the deep connections athletes form with their sports, making it a memorable moment for fans and fellow competitors alike.</p>
+            </div>
+            <img src="{% static 'images/highlights/Lopez.jpg' %}" class="highlight-image" alt="Mijian Lopez">
+        </div>
+    </div>
+
+    <div class="highlight-container">
+        <div class="highlight-row">
+            <img src="{% static 'images/highlights/Novak.jpg' %}" class="highlight-image" alt="Novak Djokovic">
+            <div class="highlight-text">
+                <h3>Novak Djokovic's Olympic Achievement</h3>
+                <p>Novak Djokovic achieved a lifelong dream by winning his first Olympic medal, completing his collection of tennis accolades. With 24 Grand Slam titles to his name, this Olympic victory marks a significant milestone in his storied career, affirming his status as one of the greatest athletes of all time. Djokovic’s relentless pursuit of excellence continues to inspire future generations of tennis players and sports enthusiasts globally.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="funFacts" class="highlight-container">
+    <h2 class="my-4">Fun Facts about Paris 2024</h2>
+    <ul style="line-height: 40px;">
+        <li><strong style="border-bottom: 3px solid black;" >First City to Host Three Times:</strong> Paris will be the first city to host the Summer Olympics three times, having previously hosted in 1900 and 1924.</li>
+        <li><strong style="border-bottom: 3px solid black;" >Opening Ceremony on the Seine:</strong> The 2024 Olympics will feature a unique opening ceremony held along the River Seine, showcasing over 160 boats and expected to attract 600,000 spectators.</li>
+        <li><strong style="border-bottom: 3px solid black;" >New Sports:</strong> The Paris Games will introduce breakdancing (officially called "breaking") as a competitive sport, along with skateboarding, sport climbing, and surfing, which were introduced in Tokyo.</li>
+        <li><strong style="border-bottom: 3px solid black;" >Sustainability Goals:</strong> The 2024 Olympics aims to be the most sustainable Games ever, focusing on reducing carbon emissions, using existing venues, and implementing eco-friendly practices.</li>
+        <li><strong style="border-bottom: 3px solid black;" >Historic Venues:</strong> Iconic locations such as the Eiffel Tower, the Grand Palais, and the Stade de France will serve as venues, blending sports with Paris’s stunning architecture.</li>
+        <li><strong style="border-bottom: 3px solid black;" >Women’s Sports:</strong> For the first time, the Olympic program will feature an equal number of events for men and women, reflecting a significant move towards gender equality.</li>
+        <li><strong style="border-bottom: 3px solid black;" >Paralympics Legacy:</strong> Following the Olympics, Paris will host the 2024 Paralympic Games, continuing the celebration of athletic excellence and inclusion.</li>
+        <li><strong style="border-bottom: 3px solid black;" >Record Participation:</strong> The Games are expected to welcome around 10,500 athletes from over 200 countries, making it one of the largest international sporting events.</li>
+        <li><strong style="border-bottom: 3px solid black;" >Cultural Celebrations:</strong> Paris 2024 will incorporate cultural festivals and events throughout the city, allowing visitors to experience French culture alongside the competitions.</li>
+        <li><strong style="border-bottom: 3px solid black;" >Volunteers:</strong> The organizing committee is looking to recruit around 45,000 volunteers to help run the Games, giving locals and visitors a chance to be part of this historic event.</li>
+    </ul>
+</div>
+
+{% endblock content %}

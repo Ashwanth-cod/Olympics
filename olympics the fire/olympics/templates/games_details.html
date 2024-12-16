@@ -1,0 +1,192 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Olympics Game{% endblock title %}
+
+{% block content %}
+<h1 class="text-center">Olympic Games</h1>
+<input type="text" id="search-bar" class="form-control" placeholder="Search for a game..." oninput="filterGames()">
+<div id="games-container" class="game-container"></div>
+
+<style>
+    body {
+        background-color: #f0f0f0;
+        padding: 20px;
+    }
+
+    h1 {
+        color: #2c3e50;
+        margin-bottom: 30px;
+    }
+
+    .game {
+        margin: 20px 0;
+        border-radius: 12px;
+        display: flex;
+        align-items: flex-start;
+        padding: 20px;
+        background-color: #ffffff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s;
+        width: 100%;
+        max-width: 800px;
+    }
+
+    .game:hover {
+        transform: scale(1.02);
+    }
+
+    .game img {
+        width: 400px;
+        height: 300px;
+        border-radius: 8px;
+        object-fit: cover;
+        margin-right: 20px;
+    }
+
+    .game-header {
+        text-align: center;
+        margin-bottom: 10px;
+        font-size: 1.5em;
+        color: #34495e;
+    }
+
+    .game-content {
+        text-align: center;
+        margin-top: 10px;
+        flex-grow: 1;
+    }
+
+    .game-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .form-control {
+        border-radius: 20px;
+        border: 1px solid #bdc3c7;
+        margin-bottom: 30px;
+    }
+
+    @media (max-width: 1200px) {
+        .game {
+            flex-direction: column;
+        }
+
+        .game img {
+            width: 100%;
+            margin: 0;
+        }
+    }
+</style>
+
+<script>
+    let jsonData = [];
+
+    fetch("{% static 'games.json' %}")
+        .then(response => response.json())
+        .then(data => {
+            jsonData = data.game; 
+            displayGames(); 
+            scrollToHash(); 
+        })
+        .catch(error => console.error('Error loading JSON:', error));
+
+    function displayGames() {
+        const container = document.getElementById('games-container');
+        container.innerHTML = '';
+
+        jsonData.forEach((item, idx) => {
+            const gameDiv = document.createElement('div');
+            gameDiv.classList.add('game');
+            gameDiv.id = item.name.replace(' ', '-');
+
+            const headerDiv = document.createElement('div');
+            headerDiv.classList.add('game-header');
+            const title = document.createElement('h2');
+            title.textContent = item.name.replace('_', ' ');
+            headerDiv.appendChild(title);
+
+            const image = document.createElement('img');
+            image.src = "{% static '' %}" + item.image;
+            image.alt = item.name;
+
+            const contentDiv = document.createElement('div');
+            contentDiv.classList.add('game-content');
+            const description = document.createElement('p');
+            description.textContent = item.description;
+            contentDiv.appendChild(description);
+
+            gameDiv.appendChild(headerDiv);
+            
+            if (idx % 2 === 0) {
+                gameDiv.appendChild(image);
+                gameDiv.appendChild(contentDiv);
+            } else {
+                gameDiv.appendChild(contentDiv);
+                gameDiv.appendChild(image);
+            }
+
+            container.appendChild(gameDiv);
+        });
+    }
+
+    function filterGames() {
+        const query = document.getElementById('search-bar').value.toLowerCase();
+        const filteredGames = jsonData.filter(game => game.name.toLowerCase().includes(query));
+        displayFilteredGames(filteredGames);
+    }
+
+    function displayFilteredGames(games) {
+        const container = document.getElementById('games-container');
+        container.innerHTML = '';
+
+        games.forEach((item, idx) => {
+            const gameDiv = document.createElement('div');
+            gameDiv.classList.add('game');
+            gameDiv.id = item.name.replace(' ', '-');
+
+            const headerDiv = document.createElement('div');
+            headerDiv.classList.add('game-header');
+            const title = document.createElement('h2');
+            title.textContent = item.name.replace('_', ' ');
+            headerDiv.appendChild(title);
+
+            const image = document.createElement('img');
+            image.src = "{% static '' %}" + item.image;
+            image.alt = item.name;
+
+            const contentDiv = document.createElement('div');
+            contentDiv.classList.add('game-content');
+            const description = document.createElement('p');
+            description.textContent = item.description;
+            contentDiv.appendChild(description);
+
+            gameDiv.appendChild(headerDiv);
+            
+            if (idx % 2 === 0) {
+                gameDiv.appendChild(image);
+                gameDiv.appendChild(contentDiv);
+            } else {
+                gameDiv.appendChild(contentDiv);
+                gameDiv.appendChild(image);
+            }
+
+            container.appendChild(gameDiv);
+        });
+    }
+
+    function scrollToHash() {
+        const hash = window.location.hash;
+        if (hash) {
+            const targetElement = document.querySelector(hash);
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+    }
+
+    window.addEventListener('hashchange', scrollToHash);
+</script>
+{% endblock content %}

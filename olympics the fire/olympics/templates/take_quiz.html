@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Take Quiz{% endblock %}
+
+{% block content %}
+    <h1 class="text-center">Olympics Trivia Quiz</h1>
+    
+    <form id="quiz-form" method="POST" action="">
+        {% csrf_token %}
+        <input type="hidden" id="score-input" name="score">
+        <input type="hidden" id="total-questions-input" name="total_questions">
+        <input type="hidden" id="facts-input" name="facts">
+        <input type="hidden" id="user-answers-input" name="user_answers">
+        <input type="hidden" id="correct-answers-input" name="correct_answers">
+        <input type="hidden" id="questions-input" name="questions">
+    
+        <div id="quiz-container" class="text-center"></div>
+    </form>
+    
+    <script>
+        let quizzes = [];
+        let score = 0;
+        let facts = [];
+        let userAnswers = [];
+        let answeredQuestions = 0;
+        
+        fetch("{% static 'trivia.json' %}")
+            .then(response => response.json())
+            .then(data => {
+                quizzes = shuffleArray(data.quizzes).slice(0, 5);
+                loadQuestions();
+            })
+            .catch(error => console.error('Error loading quiz data:', error));
+        
+        function loadQuestions() {
+            const quizContainer = document.getElementById('quiz-container');
+            quizzes.forEach((quiz, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.classList.add('mb-4');
+                questionDiv.innerHTML = `<h5>${index + 1}. ${quiz.question}</h5>`;
+        
+                quiz.choices.forEach(choice => {
+                    const choiceButton = document.createElement('button');
+                    choiceButton.classList.add('btn', 'btn-light', 'mt-2', 'choice-btn');
+                    choiceButton.innerText = choice;
+                    choiceButton.onclick = () => selectChoice(choiceButton, choice, quiz.answer, quiz.fact, index);
+                    questionDiv.appendChild(choiceButton);
+                });
+        
+                quizContainer.appendChild(questionDiv);
+            });
+        
+            document.getElementById('submit-btn').style.display = 'block';
+        }
+        
+        function selectChoice(button, choice, correctAnswer, fact, questionIndex) {
+            const choiceButtons = button.parentElement.querySelectorAll('.choice-btn');
+            choiceButtons.forEach(btn => {
+                btn.disabled = true;
+                btn.classList.remove('btn-light');
+                btn.classList.add('btn-secondary');
+            });
+    
+            userAnswers[questionIndex] = choice;
+    
+            if (choice === correctAnswer) {
+                score++;
+                button.classList.add('btn-success');
+            } else {
+                button.classList.add('btn-danger');
+            }
+    
+            facts.push(fact);
+            document.getElementById('score-input').value = score;
+            document.getElementById('total-questions-input').value = quizzes.length;
+            document.getElementById('facts-input').value = JSON.stringify(facts);
+    
+            answeredQuestions++;
+    
+            if (answeredQuestions === quizzes.length) {
+                // Store the questions in a hidden input
+                document.getElementById('questions-input').value = JSON.stringify(quizzes.map(q => q.question));
+                document.getElementById('user-answers-input').value = JSON.stringify(userAnswers);
+                document.getElementById('correct-answers-input').value = JSON.stringify(quizzes.map(q => q.answer));
+    
+                document.getElementById('quiz-form').submit();
+            }
+        }
+    
+        function shuffleArray(array) {
+            return array.sort(() => Math.random() - 0.5);
+        }
+    </script>
+    
+      
+{% endblock %}

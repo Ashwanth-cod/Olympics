@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    ul {
+        list-style-type: square;
+    }
+</style>
+
+<ul class="list-unstyled">
+    {% for quiz in quizzes %}
+        <li class="mb-3">
+            <button class="btn btn-primary" style="margin-left: 20px; margin-top:10px" onclick="toggleDetails('{{ forloop.counter }}')">
+                Score: {{ quiz.score }} (Quiz ID: {{ forloop.counter }})
+            </button>
+            <ul id="{{ forloop.counter }}" class="details" style="display: none; margin-top: 20px;">
+                {% for detail in quiz.details %}
+                    <li class="border p-2">
+                        <strong>Question:</strong> {{ detail.question }} <br>
+                        <strong>Your Answer:</strong> {{ detail.user_answer }} <br>
+                        <strong>Correct Answer:</strong> {{ detail.correct_answer }} <br>
+                        <strong>Fact:</strong> {{ detail.fact }}
+                    </li>
+                {% endfor %}
+            </ul>
+        </li>
+    {% endfor %}
+</ul>
+
+<div class="mt-4">
+    <a href="{% url 'take_quiz' %}" class="btn btn-primary" style="width: 200px; margin: 10px 20px 10px 30px;">Take a Quiz</a>
+    <a href="{% url 'dashboard' %}" class="btn btn-secondary" style="width: 200px;">Quiz Dashboard</a>
+</div>
+
+<script>
+    function toggleDetails(quizId) {
+        const details = document.getElementById(quizId);
+        details.style.display = (details.style.display === 'none') ? 'block' : 'none';
+    }
+</script>
+{% endblock content %}

@@ -1,0 +1,184 @@
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Dinosaur Game</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #333;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+
+        .game {
+            width: 600px;
+            height: 300px;
+            border: 2px solid #fff;
+            background-color: #222;
+            overflow: hidden;
+            position: relative;
+        }
+
+        #dino {
+            width: 40px;
+            height: 70px;
+            background-color: #fff;
+            position: absolute;
+            bottom: 0;
+            left: 50px;
+            border-radius: 5px;
+        }
+
+        .jump {
+            animation: jump 0.6s linear;
+        }
+
+        @keyframes jump {
+            0% { bottom: 0; }
+            50% { bottom: 130px; }
+            100% { bottom: 0; }
+        }
+
+        .cactus {
+            background-image: url("{% static 'images/games/hurdle.png' %}");
+            position: absolute;
+            bottom: 1px;
+            width: 30px;
+            height: 60px; /* Fixed height for cactus */
+            border-radius: 3px;
+            animation: moveCactus 1.5s linear infinite;
+        }
+
+        @keyframes moveCactus {
+            0% { left: 600px; }
+            100% { left: -20px; }
+        }
+
+        #score {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 20px;
+        }
+
+        .game-over {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body style="display: flex; flex-direction: column;">
+    <div class="game" style="margin-bottom: 30px;">
+        <div id="dino"></div>
+        <div id="score">Score: 0</div>
+        <div id="game-over" class="game-over" style="display: none;">Game Over! Press R to Restart</div>
+    </div>
+
+    <a class="btn btn-primary" href="{% url 'dashboard' %}" role="button">Dashboard</a>
+
+    <script>
+        const dino = document.getElementById("dino");
+        const game = document.querySelector(".game");
+        const scoreDisplay = document.getElementById("score");
+        const gameOverText = document.getElementById("game-over");
+
+        let score = 0;
+        let isGameOver = false;
+
+        function jump() {
+            if (!dino.classList.contains("jump")) {
+                dino.classList.add("jump");
+                setTimeout(() => {
+                    dino.classList.remove("jump");
+                }, 600);
+            }
+        }
+
+        function createCacti() {
+            const cactusCount = Math.floor(Math.random() * 2) + 1;
+            for (let i = 0; i < cactusCount; i++) {
+                const cactus = document.createElement("div");
+                cactus.classList.add("cactus");
+                cactus.style.left = `${600 + (i * 35)}px`; // Place next cactus 35px apart
+                game.appendChild(cactus);
+
+                // Check for collision
+                const checkCollision = setInterval(() => {
+                    const dinoBottom = parseInt(window.getComputedStyle(dino).getPropertyValue("bottom"));
+                    const cactusLeft = parseInt(window.getComputedStyle(cactus).getPropertyValue("left"));
+
+                    if (cactusLeft > 0 && cactusLeft < 90 && dinoBottom < 60) {
+                        gameOver(cactus, checkCollision);
+                    }
+                }, 10);d
+
+                cactus.addEventListener("animationend", () => cactus.remove());
+            }
+        }
+
+        function gameOver(cactus, checkCollision) {
+    isGameOver = true;
+    clearInterval(scoreInterval);
+    clearInterval(checkCollision);
+    cactus.style.animationPlayState = 'paused';
+    dino.style.animationPlayState = 'paused';
+    gameOverText.style.display = 'block';
+
+    // Send score to server
+    fetch("/save-score/", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "X-CSRFToken": "{{ csrf_token }}"
+        },
+        body: JSON.stringify({ score: score })
+    }).then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error("Error:", error));
+
+    document.addEventListener("keydown", (e) => {
+        if (e.key.toLowerCase() === 'r') {
+            window.location.reload();
+        }
+    });
+}
+
+        const scoreInterval = setInterval(() => {
+            if (!isGameOver) {
+                score++;
+                scoreDisplay.textContent = `Score: ${score}`;
+            }
+        }, 100);
+
+        // Create new cacti clusters every 1.5 seconds
+        setInterval(() => {
+            if (!isGameOver) createCacti();
+        }, 1500);
+
+        document.addEventListener("keydown", (e) => {
+            if (e.key === " " || e.key === "ArrowUp") {
+                jump();
+            }
+        });
+    </script>
+</body>
+</html>

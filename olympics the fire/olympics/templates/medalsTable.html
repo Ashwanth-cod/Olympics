@@ -1,0 +1,244 @@
+
+    
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Olympic Medal Winnings by Country{% endblock title %}
+
+{% block content %}
+<style>
+    body { font-family: Arial, sans-serif; background: #f8f9fa; margin: 0; padding: 20px; }
+    .container { max-width: 1000px; margin: auto; background: white; border-radius: 8px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); padding: 20px; }
+    h1 { text-align: center; margin-bottom: 20px; color: #007BFF; }
+    .controls { display: flex; align-items: center; justify-content: center; margin-bottom: 20px; gap: 10px; }
+    input, select { padding: 10px; border: 2px solid #007BFF; border-radius: 5px; font-size: 16px; transition: border-color 0.3s; outline: none; }
+    input:focus, select:focus { border-color: #0056b3; }
+    .sort-button, .toggle-btn { background: black; color: white; border: none; border-radius: 5px; cursor: pointer; padding: 10px; }
+    .sort-button:hover, .toggle-btn:hover { background: #333; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    th, td { padding: 10px; text-align: center; border-bottom: 1px solid #ddd; }
+    th { background: #f4f4f4; }
+    tr:hover { background: #f1f1f1; }
+    #loading { text-align: center; margin: 20px; display: none; }
+    #name { text-align: left; }
+
+    @media (max-width: 768px) {
+        th:nth-child(2), th:nth-child(3), th:nth-child(4) { display: none; }
+        td:nth-child(2), td:nth-child(3), td:nth-child(4) { display: none; }
+        .flag-container { justify-content: flex-start; }
+        .controls { flex-direction: column; align-items: stretch; }
+        input, select { width: 100%; }
+    }
+</style>
+<div class="container">
+    <h1>Olympic Medal Table</h1>
+    <div id="loading">Loading...</div>
+    <br>
+
+    <div class="btn-group" style="margin-left: 35%;">
+        <a href="{% url 'countriesWinners' %}" class="btn btn-success active" aria-current="page">MEDAL TABLE</a>
+        <a href="{% url 'medal' %}" class="btn btn-secondary">MEDALLIST</a>
+    </div>
+
+    <div class="controls" style="margin-top: 10px;">
+        <input type="text" id="search" placeholder="Search for a country..." />
+        <select id="sort" class="form-select" aria-label="Sort by">
+            <option value="country">Country</option>
+            <option value="gold">Gold Medals</option>
+            <option value="silver">Silver Medals</option>
+            <option value="bronze">Bronze Medals</option>
+            <option value="total">Total Medals</option>
+        </select>
+        <button id="toggleSort" class="sort-button">&#8593;</button>
+        <button id="toggleExpandCollapse" class="sort-button">+</button>
+    </div>
+
+    <section>
+        <table id="medal-table">
+            <thead>
+                <tr>
+                    <th>Country</th>
+                    <th><img src="{% static 'images/icons/gold.svg' %}" alt="Gold Medal" style="height: 24px;"></th>
+                    <th><img src="{% static 'images/icons/silver.svg' %}" alt="Silver Medal" style="height: 24px;"></th>
+                    <th><img src="{% static 'images/icons/bronze.svg' %}" alt="Bronze Medal" style="height: 24px;"></th>
+                    <th><img src="{% static 'images/icons/medalAll.svg' %}" alt="Total Medals" style="height: 24px;"></th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+            <tbody id="medal-table-body"></tbody>
+        </table>
+    </section>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const tableBody = document.getElementById('medal-table-body');
+        const loadingIndicator = document.getElementById('loading');
+        let sortOrder = 'desc';
+        const searchInput = document.querySelector('#search');
+        const sortSelect = document.querySelector('#sort');
+        
+        let countries = [];
+        let expandedRows = {};
+        let isExpanded = false;
+
+        loadingIndicator.style.display = 'block';
+
+        fetch('/static/medalData.json')
+            .then(response => response.json())
+            .then(data => {
+                countries = data.countries;
+                countries.forEach(country => {
+                    expandedRows[country.ThreeLetterCode] = false;
+                });
+                renderTable(countries);
+                loadingIndicator.style.display = 'none';
+
+                searchInput.addEventListener('input', updateTable);
+                sortSelect.addEventListener('change', updateTable);
+                document.querySelector('#toggleSort').addEventListener('click', () => {
+                    sortOrder = sortOrder === 'asc' ? 'desc' : 'asc';
+                    updateTable();
+                });
+                document.querySelector('#toggleExpandCollapse').addEventListener('click', () => {
+                    isExpanded = !isExpanded;
+                    updateExpandCollapse();
+                });
+            })
+            .catch(error => {
+                loadingIndicator.style.display = 'none';
+                console.error('Fetch error:', error);
+                alert('Failed to load data. Please try again later.');
+            });
+
+        function updateTable() {
+            const searchQuery = searchInput.value.toLowerCase();
+            const sortCriteria = sortSelect.value;
+            let filteredCountries = countries.filter(country =>
+                country.Country.toLowerCase().includes(searchQuery)
+            );
+            filteredCountries = sortTable(filteredCountries, sortCriteria, sortOrder);
+            renderTable(filteredCountries);
+        }
+
+        function renderTable(countries) {
+            tableBody.innerHTML = '';
+            const fragment = document.createDocumentFragment();
+
+            countries.forEach(country => {
+                const row = document.createElement('tr');
+                const name3 = country.ThreeLetterCode.toUpperCase();
+                row.innerHTML = `
+                    <td id="name"><span class="fi fi-${country.TwoLetterCode}" style="font-size: 24px; margin-right: 10px;"></span>${country.Country}</td>
+                    <td>${country.TotalGold}</td>
+                    <td>${country.TotalSilver}</td>
+                    <td>${country.TotalBronze}</td>
+                    <td>${country.TotalMedals}</td>
+                    <td><button class="toggle-btn" aria-controls="${country.ThreeLetterCode}-details" aria-expanded="${expandedRows[country.ThreeLetterCode] ? 'true' : 'false'}" onclick="toggleDetails('${country.ThreeLetterCode}')">${expandedRows[country.ThreeLetterCode] ? '−' : '+'}</button></td>
+                `;
+                fragment.appendChild(row);
+
+                const detailsRow = document.createElement('tr');
+                detailsRow.id = `${country.ThreeLetterCode}-details`;
+                detailsRow.style.display = expandedRows[country.ThreeLetterCode] ? '' : 'none';
+                detailsRow.innerHTML = `
+                    <td colspan="6">
+                        <div class="details-content">
+                            <table class="nested-table">
+                                <thead>
+                                    <tr>
+                                        <th>Sport</th>
+                                        <th>Gold</th>
+                                        <th>Silver</th>
+                                        <th>Bronze</th>
+                                        <th>Total Medals</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    ${country.Medals.map(sport => `
+                                        <tr>
+                                            <td>${sport.Sport}</td>
+                                            <td>${sport.Gold}</td>
+                                            <td>${sport.Silver}</td>
+                                            <td>${sport.Bronze}</td>
+                                            <td>${sport.Total}</td>
+                                        </tr>
+                                    `).join('')}
+                                </tbody>
+                            </table>
+                        </div>
+                    </td>
+                `;
+                fragment.appendChild(detailsRow);
+            });
+
+            tableBody.appendChild(fragment);
+        }
+
+        window.toggleDetails = (countryCode) => {
+            const detailsRow = document.getElementById(`${countryCode}-details`);
+            const button = document.querySelector(`[aria-controls="${countryCode}-details"]`);
+            const isCurrentlyExpanded = expandedRows[countryCode];
+
+            if (isCurrentlyExpanded) {
+                detailsRow.style.display = 'none';
+                button.textContent = '+';
+                button.setAttribute('aria-expanded', 'false');
+                expandedRows[countryCode] = false;
+            } else {
+                detailsRow.style.display = '';
+                button.textContent = '−';
+                button.setAttribute('aria-expanded', 'true');
+                expandedRows[countryCode] = true;
+            }
+        }
+
+        function updateExpandCollapse() {
+            if (isExpanded) {
+                expandAll();
+                document.querySelector('#toggleExpandCollapse').textContent = '-';
+            } else {
+                collapseAll();
+                document.querySelector('#toggleExpandCollapse').textContent = '+';
+            }
+        }
+
+        function expandAll() {
+            document.querySelectorAll('.toggle-btn').forEach(button => {
+                const countryCode = button.getAttribute('aria-controls').split('-')[0];
+                if (!expandedRows[countryCode]) {
+                    button.click();
+                }
+            });
+        }
+
+        function collapseAll() {
+            document.querySelectorAll('.toggle-btn').forEach(button => {
+                const countryCode = button.getAttribute('aria-controls').split('-')[0];
+                if (expandedRows[countryCode]) {
+                    button.click();
+                }
+            });
+        }
+
+        function sortTable(countries, sortCriteria, order) {
+            return countries.sort((a, b) => {
+                const aValue = getValue(a, sortCriteria);
+                const bValue = getValue(b, sortCriteria);
+                if (aValue === bValue) return 0;
+                return order === 'asc' ? (aValue > bValue ? 1 : -1) : (aValue < bValue ? 1 : -1);
+            });
+        }
+
+        function getValue(country, criteria) {
+            switch (criteria) {
+                case 'country': return country.Country || '';
+                case 'gold': return Number(country.TotalGold) || 0;
+                case 'silver': return Number(country.TotalSilver) || 0;
+                case 'bronze': return Number(country.TotalBronze) || 0;
+                case 'total': return Number(country.TotalMedals) || 0;
+            }
+        }
+    });
+</script>
+{% endblock content %}
