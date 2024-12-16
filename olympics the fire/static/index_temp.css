@@ -1,0 +1,215 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;   
+}
+
+.ring {
+    border-radius: 50%;
+    width: 100px;
+    position: absolute;
+    height: 100px;
+}
+
+#animation {
+    width: 100%;
+    height: 100%;
+}
+
+#ring1 { border: 5px solid skyblue; animation: assemble1 10s; }
+#ring2 { border: 5px solid black; animation: assemble2 10s; left: calc(50% - 80px); }
+#ring3 { border: 5px solid red; animation: assemble3 10s; right: 0; }
+#ring4 { border: 5px solid yellow; animation: assemble4 10s; left: 0; top: calc(100% - 80px); }
+#ring5 { border: 5px solid green; animation: assemble5 10s; right: 0; top: calc(100% - 80px); }
+
+@keyframes assemble1 {
+    from { filter: blur(0px); top: 0; left: 0; }
+    to { top: calc(49% - 95px); margin-left: calc(45% - 100px); }
+}
+
+@keyframes assemble2 {
+    0% { filter: blur(100px); top: 0; } 
+    10% { filter: blur(0px); }
+    90% { top: calc(49% - 100px); } 
+    100% { top: calc(49% - 100px); }
+}
+
+@keyframes assemble3 {
+    from { filter: blur(0px); top: 0; }
+    to { top: calc(49% - 95px); margin-right: calc(50% - 130px); }
+}
+
+@keyframes assemble4 {
+    0% { filter: blur(100px); left: 0; }
+    10% { filter: blur(0px); }
+    90% { top: calc(50% - 50px); left: calc(50% - 130px); }
+    100% { top: calc(50% - 50px); left: calc(50% - 130px); } 
+}
+
+@keyframes assemble5 {
+    0% { filter: blur(100px); } 
+    10% { filter: blur(0px); } 
+    90% { top: calc(50% - 50px); right: calc(50% - 80px); }
+    100% { top: calc(50% - 50px); right: calc(50% - 80px); }
+}
+
+.message {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: calc(3rem);
+    color: black;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.7);
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.carousel {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.carousel-inner {
+    height: 100%;
+}
+
+.carousel-item {
+    height: 100%;
+}
+
+.carousel-img {
+    width: 120%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.carousel-item img {
+    height: 100vh;
+    width: 100vw;
+    object-fit: cover;
+}
+
+.nav-link {
+    color: rgb(0, 0, 248);
+}
+
+.collage-card {
+    margin-top: 20px;
+    border: 2px solid #ddd;
+    padding: 20px;
+    background-color: wheat;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px #0000001a;
+}
+
+.collage-img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    margin-left: 30px;
+    border-radius: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.text-container {
+    padding: 20px;
+}
+
+.text-container h2 {
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+}
+
+.text-container p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.quiz-card {
+    width: 100%;
+    max-width: 48rem;
+    margin: 20px auto;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.quiz-card .card-title {
+    font-size: 1.25rem;
+    margin-bottom: 15px;
+}
+
+.quiz-card .card-text {
+    margin-bottom: 20px;
+    font-size: 1rem;
+    color: #555;
+}
+
+.quiz-card .btn {
+    background-color: #007bff;
+    border: none;
+}
+
+.loading-animation {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    z-index: 9999; /* Make sure it covers everything */
+}
+
+.loader {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #3498db;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@media (min-width: 769px) {
+    #mobileLoading {
+        display: none; /* Hide on larger screens */
+    }
+}
+
+@media (max-width: 768px) {
+    #animation {
+        display: none;
+    }
+
+    .carousel-img {
+        width: 100%;
+        height: auto;
+    }
+
+    .text-container h2 {
+        font-size: 1.5rem;
+    }
+
+    .text-container p {
+        font-size: 0.9rem;
+    }
+
+    .quiz-card {
+        padding: 15px;
+    }
+}

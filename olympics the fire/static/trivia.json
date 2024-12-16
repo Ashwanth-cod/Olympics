@@ -1,0 +1,144 @@
+{
+  "quizzes": [
+      {
+          "question": "In which year did the modern Olympic Games start?",
+          "choices": ["1896", "1900", "1924", "1936"],
+          "id": 1,
+          "answer": "1896",
+          "fact": "The first modern Olympic Games were held in Athens, Greece."
+      },
+      {
+          "question": "Who is known as the father of the modern Olympic Games?",
+          "choices": ["Baron Pierre de Coubertin", "Avery Brundage", "Juan Antonio Samaranch", "Thomas Bach"],
+          "id": 2,
+          "answer": "Baron Pierre de Coubertin",
+          "fact": "Coubertin revived the Olympic Games in 1896."
+      },
+      {
+          "question": "Which city hosted the 2000 Summer Olympics?",
+          "choices": ["Sydney", "Beijing", "Athens", "London"],
+          "id": 3,
+          "answer": "Sydney",
+          "fact": "The Sydney 2000 Olympics are remembered for their excellent organization and sportsmanship."
+      },
+      {
+          "question": "What is the Olympic motto?",
+          "choices": ["Faster, Higher, Stronger", "Unity in Diversity", "One World, One Dream", "Excellence, Respect, Friendship"],
+          "id": 4,
+          "answer": "Faster, Higher, Stronger",
+          "fact": "The Olympic motto 'Citius, Altius, Fortius' was proposed by Pierre de Coubertin."
+      },
+      {
+          "question": "Which country has won the most Olympic gold medals?",
+          "choices": ["USA", "China", "Russia", "Great Britain"],
+          "id": 5,
+          "answer": "USA",
+          "fact": "The USA has consistently dominated the Olympic medal tally."
+      },
+      {
+          "question": "Which sport was introduced in the Olympics for the first time in 1900?",
+          "choices": ["Basketball", "Tennis", "Soccer", "Golf"],
+          "id": 6,
+          "answer": "Tennis",
+          "fact": "Tennis returned to the Olympics after a long absence in 1988."
+      },
+      {
+          "question": "How often are the Summer Olympics held?",
+          "choices": ["Every 2 years", "Every 4 years", "Every 6 years", "Every 5 years"],
+          "id": 7,
+          "answer": "Every 4 years",
+          "fact": "The Summer Olympics are held every four years, except during war times."
+      },
+      {
+          "question": "What is the name of the Olympic flame's journey from Greece to the host city?",
+          "choices": ["Torch Relay", "Flame Trail", "Light of Peace", "Olympic Journey"],
+          "id": 8,
+          "answer": "Torch Relay",
+          "fact": "The torch relay symbolizes the connection between the ancient and modern Games."
+      },
+      {
+          "question": "Which city will host the 2024 Summer Olympics?",
+          "choices": ["Tokyo", "Paris", "Los Angeles", "Beijing"],
+          "id": 9,
+          "answer": "Paris",
+          "fact": "Paris will host the Olympics for the third time, previously hosting in 1900 and 1924."
+      },
+      {
+          "question": "What is the significance of the Olympic rings?",
+          "choices": ["Symbol of Peace", "Unity of Continents", "Strength and Courage", "Friendship"],
+          "id": 10,
+          "answer": "Unity of Continents",
+          "fact": "The five interlocking rings represent the five inhabited continents."
+      },
+      {
+          "question": "Which country first included women in their Olympic team?",
+          "choices": ["USA", "France", "Great Britain", "Sweden"],
+          "id": 11,
+          "answer": "France",
+          "fact": "Women were first allowed to compete in the 1900 Olympics in Paris."
+      },
+      {
+          "question": "What is the official Olympic song?",
+          "choices": ["We Are the Champions", "Chariots of Fire", "Olympic Fanfare", "The Olympic Spirit"],
+          "id": 12,
+          "answer": "Olympic Fanfare",
+          "fact": "The Olympic Fanfare was composed by John Williams for the 1984 Los Angeles Games."
+      },
+      {
+          "question": "What do the colors of the Olympic flag represent?",
+          "choices": ["Unity of Nations", "Peace and Harmony", "All Colors of the World", "Hope"],
+          "id": 13,
+          "answer": "All Colors of the World",
+          "fact": "The colors of the Olympic rings are found in all national flags."
+      },
+      {
+          "question": "Which Olympic Games were the first to be televised?",
+          "choices": ["1936 Berlin", "1948 London", "1960 Rome", "1964 Tokyo"],
+          "id": 14,
+          "answer": "1936 Berlin",
+          "fact": "The Berlin Olympics were the first Games to be televised live."
+      },
+      {
+          "question": "What year were the Winter Olympics first held?",
+          "choices": ["1924", "1932", "1936", "1948"],
+          "id": 15,
+          "answer": "1924",
+          "fact": "The first Winter Olympics were held in Chamonix, France."
+      },
+      {
+          "question": "Which country will host the 2026 Winter Olympics?",
+          "choices": ["China", "Italy", "Germany", "Japan"],
+          "id": 16,
+          "answer": "Italy",
+          "fact": "Italy will host the Winter Olympics in Milan and Cortina d'Ampezzo."
+      },
+      {
+          "question": "Which athlete has won the most Olympic medals?",
+          "choices": ["Michael Phelps", "Larisa Latynina", "Bjørn Dæhlie", "Mark Spitz"],
+          "id": 17,
+          "answer": "Michael Phelps",
+          "fact": "Michael Phelps won a total of 28 Olympic medals, 23 of which are gold."
+      },
+      {
+          "question": "In which sport do athletes compete for the Ironman title?",
+          "choices": ["Triathlon", "Marathon", "Swimming", "Cycling"],
+          "id": 18,
+          "answer": "Triathlon",
+          "fact": "The Ironman consists of a 2.4-mile swim, a 112-mile bike ride, and a 26.2-mile run."
+      },
+      {
+          "question": "What year did the Olympics first include the team sports?",
+          "choices": ["1900", "1920", "1924", "1936"],
+          "id": 19,
+          "answer": "1900",
+          "fact": "Team sports were first included in the 1900 Paris Olympics."
+      },
+      { 
+          "question": "What is the Olympic motto in Latin?",
+          "choices": ["Citius, Altius, Fortius", "Ad Astra Per Aspera", "Dum Spiro Spero", "Aquila non capit muscas"],
+          "id": 20,
+          "answer": "Citius, Altius, Fortius",
+          "fact": "It means 'Faster, Higher, Stronger'."
+      }
+  ]
+}

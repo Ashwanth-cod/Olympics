@@ -1,0 +1,593 @@
+{
+    "playerDetails" : [
+        {
+            "name":"ZHANG Yufei",
+            "image":"Zhang_Yufei.jpg",
+            "countryName":"china",
+            "letter2":"cn",
+            "bio":"Zhang Yufei (born 19 April 1998) is a Chinese competitive swimmer who specializes in sprint freestyle and butterfly events. Considered one of the most promising swimming in the international scene, she produced a tally of forty-three medals (eighteen gold medals, eight silver medals, and seventeen bronze medals) in her swimming career, spanning the Youth Olympics, Asian Games, World Championships and the Summer Olympics. She currently holds the record for most Olympic medals for a Chinese athlete. In 2023, she was named as the most valuable player in the women's division, in the 2022 Asian Games in Hangzhou.",
+            "sport": "Swimming",
+            "events":[
+                {
+                    "event_name": "Women's 4 x 100m Medley Relay",
+                    "medal_won": "b"
+                },
+                {
+                    "event_name": "Women's 4 x 100m Freestyle Relay",
+                    "medal_won": "b"
+                },
+                {
+                    "event_name": "Women's 50m Freestyle",
+                    "medal_won": "b"
+                },
+                {
+                    "event_name": "Mixed 4 x 100m Medley Relay",
+                    "medal_won": "s"
+                },
+                {
+                    "event_name": "Women's 100m Butterfly",
+                    "medal_won": "b"
+                },
+                {
+                    "event_name": "Women's 200m Butterfly",
+                    "medal_won": "b"
+                }   
+            ]
+        },
+        {
+            "name":"MARCHAND Leon",
+            "image":"Marchand_Leon.jpg",
+            "countryName":"fra",
+            "letter2":"fr",
+            "bio":"Marchand Leon  is a French swimmer. He is the world record holder in the long course 400 metres individual medley; the Olympic record holder in the 200 metres butterfly, the 200 metres breaststroke, the 200 metres individual medley and the 400 metres individual medley; and the French record holder in the long course 200 metre individual medley, 200 metre butterfly and 200 metre breaststroke. At the 2024 Summer Olympics, he won gold medals in the 200 m medley, 200 metre breaststroke, 200 metre butterfly, and 400 metre medley. He became the fourth swimmer in Olympic history to win four individual gold medals at a single Games.",
+            "sport": "Swimming",
+            "events":[
+                {
+                    "event_name": "Men's 200m Breaststroke",
+                    "medal_won": "g"
+                },
+                {
+                    "event_name": "Men's 200m Butterfly",
+                    "medal_won": "g"
+                },
+                {
+                    "event_name": "Men's 400m Individual Medley",
+                    "medal_won": "g"
+                },
+                {
+                    "event_name": "Men's 200m Individual Medley",
+                    "medal_won": "g"
+                },
+                {
+                    "event_name": "Men's 4 x 100m Medley Relaye",
+                    "medal_won": "b"
+                }
+                 
+            ]
+        },
+        {
+            "name":"HUSKE Torri",
+            "image":"Torri.jpg",
+            "countryName":"usa",
+            "letter2":"us",
+            "bio":" Victoria Torri Huske is an American competitive swimmer and the reigning Olympic champion in the 100-meter butterfly. She holds world records in two relays: the 4x100-meter medley and 4x100-meter mixed medley. She is the former American record holder in the 50- and 100-meter butterfly.",
+            "sport": "Swimming",
+            "events":[
+                {
+                    "event_name": "Women's 4 x 100m Medley Relay",
+                    "medal_won": "g"
+                },
+                {
+                    "event_name": "Women's 4 x 100m Freestyle Relay",
+                    "medal_won": "s"
+                },
+                {
+                    "event_name": "Mixed 4 x 100m Medley Relay",
+                    "medal_won": "g"
+                },
+                {
+                    "event_name": "Women's 100m Freestyle",
+                    "medal_won": "s"
+                },
+                {
+                    "event_name": "Women's 100m Butterfly",
+                    "medal_won": "g"
+                }
+            ]
+        },
+        {
+            "name":"O'CALLAGHAN Mollie",
+            "image":"OCALLAGHAN.jpg",
+            "countryName":"aus",
+            "letter2":"au",
+            "bio":"Mollie Grace O'Callaghan OAM (born 2 April 2004) is an Australian swimmer and the reigning Olympic champion in the 200 m freestyle. She was the 2023 world champion in the women's 100m and 200m freestyle individual events, and part of the world champion 4 × 100 m and 4 × 200 m Australian women's relay teams together with 4 × 100 m mixed relay team. She previously held the world record in the women's individual 200m freestyle.",
+            "sport": "Swimming",
+            "events":[
+                {
+                    "event_name": "Women's 4 x 100m Medley Relay",
+                    "medal_won": "s"
+                },
+                {
+                    "event_name": "Women's 4 x 100m Freestyle Relay",
+                    "medal_won": "g"
+                },
+                {
+                    "event_name": "Women's 4 x 200m Freestyle Relay",
+                    "medal_won": "g"
+                },
+                {
+                    "event_name": "Women's 200m Freestyle",
+                    "medal_won": "g"
+                },
+                {
+                    "event_name": "Mixed 4 x 100m Medley Relay",
+                    "medal_won": "b"
+                }
+            ]
+        },
+        {
+            "name":"SMITH Regan",
+            "image":"Smith_regan.jpg",
+            "countryName":"usa",
+            "letter2":"us",
+            "bio":"Regan Smith (born February 9, 2002) is an American competitive swimmer. She competed at the 2020 and 2024 Olympic Games and won eight medals, including two golds. Smith also won nine total medals at the World Championships, including five golds. She was the 2019 world champion in the 200 m backstroke and the 2022 world champion in the 100 m backstroke.Smith is the world record holder in the 100 m backstroke, the world junior record holder in the 100 m backstroke and 200 m backstroke, and the former world record holder in the 200 m backstroke.",
+            "sport": "Swimming",
+            "events":[
+                {
+                    "event_name": "Women's 4 x 100m Medley Relay",
+                    "medal_won": "g"
+                },
+                {
+                    "event_name": "Women's 100m Backstroke",
+                    "medal_won": "s"
+                },
+                {
+                    "event_name": "Mixed 4 x 100m Medley Relay",
+                    "medal_won": "g"
+                },
+                {
+                    "event_name": "Women's 200m Backstroke",
+                    "medal_won": "s"
+                },
+                {
+                    "event_name": "Women's 200m Butterfly",
+                    "medal_won": "s"
+                }
+                 
+            ]
+        },
+        {
+            "name":"McKEOWN Kaylee",
+            "image":"Kaylee.jpeg",
+            "countryName":"aus",
+            "letter2":"au",
+            "bio":"Kaylee Rochelle McKeown is an Australian swimmer and quintuple Olympic gold medalist. She is the reigning Olympic champion in the 100 and 200 metres backstroke. She is the world record holder in the long course 50 metre backstroke and both the long course and short course 200 metre backstroke.She won gold in both the 100 metre and 200 metre backstroke at both the 2020 and 2024 Olympics. In 2023, she was named as the Best Female Swimmer of the Year by World Aquatics, after sweeping gold in all three events of backstroke (50m, 100m, and 200m) at all three World Cup legs, held in Berlin, Athens and Budapest in October, 2023",
+            "sport": "Swimming",
+            "events":[
+                {
+                    "event_name": "Women's 4 x 100m Medley Relay",
+                    "medal_won": "s"
+                },
+                {
+                    "event_name": "Women's 100m Backstroke",
+                    "medal_won": "g"
+                },
+                {
+                    "event_name": "Mixed 4 x 100m Medley Relay",
+                    "medal_won": "b"
+                },
+                {
+                    "event_name": "Women's 200m Individual Medley",
+                    "medal_won": "b"
+                },
+                {
+                    "event_name": "Women's 200m Backstroke",
+                    "medal_won": "g"
+                }
+            ]
+        },
+        {
+            "name":"McINTOSH Summer",
+            "image":"Summer.jpg",
+            "countryName":"can",
+            "letter2":"ca",
+            "bio":"Summer Ann McIntosh (born August 18, 2006) is a Canadian competitive swimmer.She is a three-time Olympic champion, four-time World Aquatics champion, and two-time Commonwealth Games gold medallist. Noted for her strength in medley and butterfly events, she is the current world record holder in the 400 metre individual medley,and also holds the Olympic and textile records in the 200 metre butterfly event,and the Olympic record in the 200 metre individual medley.",
+            "sport": "Swimming",
+            "events":[
+                {
+                    "event_name": "Women's 400m Individual Medley",
+                    "medal_won": "g"
+                },
+                {
+                    "event_name": "Women's 200m Butterfly",
+                    "medal_won": "g"
+                },
+                {
+                    "event_name": "Women's 200m Individual Medley",
+                    "medal_won": "g"
+                },
+                {
+                    "event_name": "Women's 400m Freestyle",
+                    "medal_won": "s"
+                }
+            ]
+        },
+        {
+            "name":"BILES Simone",
+            "image":"Biles_simone.jpg",
+            "countryName":"usa",
+            "letter2":"us",
+            "bio":"Simone Arianne Biles Owens OLY (born March 14, 1997) is an American artistic gymnast. Her 11 Olympic medals and 30 World Championship medals make her the most decorated gymnast in history, and she is widely considered to be one of the greatest gymnasts and Olympians of all time. With 11 Olympic medals, she is tied with Vera Caslavska as the second-most decorated female Olympic gymnast, and has the most Olympic medals earned by a U.S. gymnast.At the World Championships, she is the most decorated male or female artistic gymnast of all time. Biles is a six-time individual all-around champion (2013, 2014, 2015, 2018, 2019 and 2023), six-time floor exercise champion (2013–2015, 2018–2019, 2023), and four-time balance beam champion (2014–2015, 2019, 2023), all record-high totals. She is also a two-time vault champion (2018–2019) and a member of a record-high five gold medal-winning United States teams (2014–2015, 2018–2019, 2023). She is also a four-time World silver medalist (2013–2014 and 2023 on vault, 2018 on uneven bars), a three-time World bronze medalist (2015 on vault, 2013 and 2018 on balance beam).",
+            "sport": "Artistic Gymnastics",
+            "events":[
+                {
+                    "event_name": "Women's All-Around",
+                    "medal_won": "g"
+                },
+                {
+                    "event_name": "Women's Vault",
+                    "medal_won": "g"
+                },
+                {
+                    "event_name": "Women's Floor Exercise",
+                    "medal_won": "s"
+                },
+                {
+                    "event_name": "Women's Team",
+                    "medal_won": "g"
+                }
+            ]
+        },
+        {
+            "name":"OKA Shinnosuke",
+            "image":"Shinnosuke.jpg",
+            "countryName":"jpn",
+            "letter2":"jp",
+            "bio":"Shinnosuke Oka (born 31 October 2003) is a Japanese artistic gymnast. He is the 2024 Olympic all-around champion, as well as a member of the Japanese team, which also won gold at 2024 games. He also won the Olympic title on the horizontal bar and the bronze medal on the parallel bars.He is also the 2023 Asian and 2019 Junior World all-around champion. He won silver medals on the parallel bars and horizontal bar at the 2023 Asian Championships.",
+            "sport": "Artistic Gymnastics",
+            "events":[
+                {
+                    "event_name": "Men's Parallel Bars",
+                    "medal_won": "b"
+                },
+                {
+                    "event_name": "Men's All-Around",
+                    "medal_won": "g"
+                },
+                {
+                    "event_name": "Men's Team",
+                    "medal_won": "g"
+                },
+                {
+                    "event_name": "Men's Horizontal Bar",
+                    "medal_won": "g"
+                }
+            ]
+        },
+        {
+            "name":"TITMUS Ariarne",
+            "image":"Titmus.jpg",
+            "countryName":"aus",
+            "letter2":"au",
+            "bio":"Ariarne Elizabeth Titmus OAM (born 7 September 2000) is an Australian swimmer. She is the reigning Olympic champion in the women's 400-metre freestyle, having won the event at the 2020 Summer Olympics and the 2024 Summer Olympics and the world record holder in the long course 200-metre freestyle and 400-metre freestyle events. In 2019 and 2020, she competed representing the Cali Condors in the International Swimming League.",
+            "sport": "Swimming",
+            "events":[
+                {
+                    "event_name": "Women's 400m Freestyle",
+                    "medal_won": "g"
+                },
+                {
+                    "event_name": "Women's 4 x 200m Freestyle Relay",
+                    "medal_won": "g"
+                },
+                {
+                    "event_name": "Women's 800m Freestyle",
+                    "medal_won": "s"
+                },
+                {
+                    "event_name": "Women's 200m Freestyle",
+                    "medal_won": "s"
+                }
+            ]
+        },
+        {
+            "name":"DOUGLASS Kate",
+            "image":"Douglass.jpg",
+            "countryName":"usa",
+            "letter2":"us",
+            "bio":"Katherine Cadwallader Douglass (born November 17, 2001) is an American competitive swimmer. A versatile swimmer who competes in many events, Douglass won her first major international medal at the 2020 Olympic Games and won three medals at the 2022 World Championships. Douglass then won six medals, including two golds, at the 2023 World Championships. At the 2024 World Championships, she won five medals, including two golds. Douglass won four medals, including two golds, at the 2024 Olympic Games; she became the Olympic champion in the 200 m breaststroke.",
+            "sport": "Swimming",
+            "events":[
+                {
+                    "event_name": "Women's 4 x 100m Medley Relay",
+                    "medal_won": "g"
+                },
+                {
+                    "event_name": "Women's 4 x 100m Freestyle Relay",
+                    "medal_won": "s"
+                },
+                {
+                    "event_name": "Women's 200m Individual Medley",
+                    "medal_won": "s"
+                },
+                {
+                    "event_name": "Women's 200m Breaststroke",
+                    "medal_won": "g"
+                }
+            ]
+        },
+        {
+            "name":"WALSH Gretchen",
+            "image":"Gretchen.jpg",
+            "countryName":"usa",
+            "letter2":"us",
+            "bio":"Gretchen Walsh (born January 29, 2003) is an American competitive swimmer and the world record holder in the 100 meter butterfly, 4×100 medley relay, and mixed gender 4×100 medley relay. She won the silver medal in the 100 meter butterfly at the 2024 Summer Olympics in Paris, where she also set the Olympic record in the 100 meter butterfly in the semifinals with a time of 55.38. She additionally holds one world junior record in the mixed gender 4×100 medley relay event, as well as American records in the 50 meter butterfly, 4×100 meter freestyle relay, 4×100 meter medley relay, 50 yard freestyle, 100 yard freestyle, 100 yard butterfly, 100 yard backstroke, 4×50 yard freestyle relay, 4×50 yard medley relay, 4×100 yard freestyle relay, and 4×100 yard medley relay.",
+            "sport": "Swimming",
+            "events":[
+                {
+                    "event_name": "Women's 4 x 100m Medley Relay",
+                    "medal_won": "g"
+                },
+                {
+                    "event_name": "Mixed 4 x 100m Medley Relay",
+                    "medal_won": "g"
+                },
+                {
+                    "event_name": "Women's 4 x 100m Freestyle Relayy",
+                    "medal_won": "s"
+                },
+                {
+                    "event_name": "Women's 100m Butterfly",
+                    "medal_won": "g"
+                }
+            ]
+        },
+        {
+            "name":"LEDECKY Katie",
+            "image":"Ledecky.jpg",
+            "countryName":"usa",
+            "letter2":"us",
+            "bio":"Kathleen Genevieve Ledecky (born March 17, 1997 is an American competitive swimmer. She has won nine Olympic gold medals and 21 world championship gold medals, the most in history for a female swimmer. With 14 medals and 9 gold medals, she is also the most decorated American woman, most decorated female swimmer, the woman with the most gold medals (tied with Larisa Latynina) and fifth-most decorated athlete in Olympic history. She has won a record 16 individual gold medals at the World Aquatics Championships.Ledecky's 10 individual medals at the Olympics and 26 overall medals at the World Aquatics Championships are records in women's swimming‌. Ledecky is the world record holder in the women's 800- and 1500-meter freestyle (both long course and short course), as well as the former world record holder in the women's 400-meter freestyle (long course). She also holds the fastest-ever times in the women's 500-, 1000-, and 1650-yard freestyle events. She is widely regarded as the greatest female swimmer of all time and one of the greatest Olympians of all time.",
+            "sport": "Swimming",
+            "events":[
+                {
+                    "event_name": "Women's 400m Freestyle",
+                    "medal_won": "b"
+                },
+                {
+                    "event_name": "Women's 4 x 200m Freestyle Relay",
+                    "medal_won": "s"
+                },
+                {
+                    "event_name": "Women's 800m Freestyle",
+                    "medal_won": "g"
+                },
+                {
+                    "event_name": "Women's 1500m Freestyle",
+                    "medal_won": "g"
+                }
+            ]
+        },
+        {
+            "name":"ANDRADE Rebeca",
+            "image":"Rebeca.jpg",
+            "countryName":"bra",
+            "letter2":"br",
+            "bio":"Rebeca Rodrigues de Andrade (born 8 May 1999) is a Brazilian artistic gymnast. Having won a total of six Olympic and nine World medals, she is the most decorated Brazilian and Latin American gymnast of all time, as well as the most decorated Brazilian Olympian in any discipline. In the all-around, she is the 2022 World champion, a two-time Olympic silver medalist (2020, 2024), the 2023 World silver medalist, and the 2021 Pan American champion. On vault, she is the 2020 Olympic gold medalist, the 2024 Olympic silver medalist, a two-time World Champion (2021, 2023), and the 2023 Pan American Games champion. She led the Brazilian team to its first ever team medals at the 2023 World Championships (silver) and the 2024 Olympics (bronze), as well as the gold medal at the 2021 Pan American Championships. She won the gold medal at the 2024 Olympics in the floor exercise.",
+            "sport": "Artistic Gymnastics",
+            "events":[
+                {
+                    "event_name": "Women's All-Around",
+                    "medal_won": "s"
+                },
+                {
+                    "event_name": "Women's Vault",
+                    "medal_won": "s"
+                },
+                {
+                    "event_name": "Women's Floor Exercise",
+                    "medal_won": "g"
+                },
+                {
+                    "event_name": "Women's Team",
+                    "medal_won": "b"
+                }
+            ]
+        },
+        {
+            "name":"YANG Junxuan",
+            "image":"Hangzhou.jpg",
+            "countryName":"chn",
+            "letter2":"cn",
+            "bio":"Yang Junxuan (born 26 January 2002) is a Chinese swimmer specializing in freestyle events.[3] At the 2020 Summer Olympics, she won gold in the 4x200 metre freestyle relay.Yang Junxuan (born 26 January 2002) is a Chinese swimmer specializing in freestyle events. At the 2020 Summer Olympics, she won gold in the 4x200 metre freestyle relay.",
+            "sport": "Swimming",
+            "events":[
+                {
+                    "event_name": "Mixed 4 x 100m Medley Relay",
+                    "medal_won": "s"
+                },
+                {
+                    "event_name": "Women's 4 x 100m Medley Relay",
+                    "medal_won": "b"
+                },
+                {
+                    "event_name": "Women's 4 x 100m Freestyle Relay",
+                    "medal_won": "b"
+                },
+                {
+                    "event_name": "Women's 4 x 200m Freestyle Relay",
+                    "medal_won": "b"
+                }
+            ]
+        },
+        {
+            "name":"KIM Woojin",
+            "image":"Woojin.jpg",
+            "countryName":"kor",
+            "letter2":"kr",
+            "bio":"Kim Woo-jin (born June 20, 1992) is a South Korean archer specializing in recurve archery. He first held the world number one ranking in 2011. At the 2016 Summer Olympics, he set a world record in men's individual recurve archery as well as won the gold medal as a member of the South Korean men's archery team. During the 2024 Summer Olympics, he earned an Olympic gold medal in the men's individual event after a tiebreaker with American archer Brady Ellison. This victory marked Kim's fifth gold medal overall and his third consecutive Olympics in which he won a gold medal. He is a three-time world champion in the men's individual recurve event at the World Archery Championships.He is right-handed, and uses 30-inch (76 cm) arrows and a draw weight of 46 pounds (21 kg)",
+            "sport": "Archery",
+            "events":[
+                {
+                    "event_name": "Men's Individual",
+                    "medal_won": "g"
+                },
+                {
+                    "event_name": "Mixed Team",
+                    "medal_won": "g"
+                },
+                {
+                    "event_name": "Men's Team",
+                    "medal_won": "g"
+                }
+            ]
+        },
+        {
+            "name":"LIM Sihyeon",
+            "image":"Lim_sihyeon.jpg",
+            "countryName":"kor",
+            "letter2":"kr",
+            "bio":"Lim Si-hyeon (born 13 June 2003) is a South Korean archer. She won three gold medals at the 2024 Summer Olympics in the individual, team and mixed team events. By virtue of winning all three gold medals in the same Olympic Games, Lim became the second person to do so, matching her compatriot, An San, at the 2020 Summer Olympics. She also set the world & Olympic records in the preliminary round of the women's individual event, scoring 694 out of a maximum of 720, thereby surpassing fellow South Korean Kang Chae-young's 692 and An San's 680, respectively.",
+            "sport": "Archery",
+            "events":[
+                {
+                    "event_name": "Women's Individual",
+                    "medal_won": "g"
+                },
+                {
+                    "event_name": "Mixed Team",
+                    "medal_won": "g"
+                },
+                {
+                    "event_name": "Women's Team",
+                    "medal_won": "g"
+                }
+            ]
+        },
+        {
+            "name":"LAVREYSEN Harrie",
+            "image":"Lavreysen.jpg",
+            "countryName":"ned",
+            "letter2":"nl",
+            "bio":"Harrie Lavreysen (born 14 March 1997) is a Dutch track cyclist who competes in sprint events. He is five-time Olympic gold medalist, having won the sprint and team sprint event at the 2020 Summer Olympics, and adding the sprint, the team sprint and the keirin titles at the 2024 Summer Olympics. Lavreysen also competed at the 2016 UEC European Track Championships in the team sprint event. He has won thirteen world championship titles, including five titles in the team sprint (2018–2021, 2023), five consecutive titles in the individual sprint (2019–2023), as well as three in the keirin (2020–2022).Formerly a BMX rider, he is nicknamed The Beast",
+            "sport": "Cycling Track",
+            "events":[
+                {
+                    "event_name": "Men's Team Sprint",
+                    "medal_won": "g"
+                },
+                {
+                    "event_name": "Men's Sprint",
+                    "medal_won": "g"
+                },
+                {
+                    "event_name": "Men's Keirin",
+                    "medal_won": "g"
+                }
+            ]
+        },
+        {
+            "name":"CARRINGTON Lisa",
+            "image":"Lisa_carrington.jpg",
+            "countryName":"nzl",
+            "letter2":"nz",
+            "bio":"Dame Lisa Marie Carrington DNZM (born 23 June 1989) is a flatwater canoeist and New Zealand's most successful Olympian, having won a total of eight gold medals and1 one bronze medal. She won three consecutive gold medals in the Women's K‑1 200 metres at the 2012 Summer Olympics, 2016 Summer Olympics and 2020 Summer Olympics, as well as gold in the same event at the 2011 Canoe Sprint World Championships.[5][6] At the 2020 Summer Olympics she also won a gold medal in the K‑2 500 metres, with Caitlin Regal, and as an individual in the K‑1 500 metres. At the 2024 Summer Olympics in Paris, Carrington defended her titles in the K‑1 500 metres and K‑2 500 metres event (with Alicia Hoskin) and also won the K‑4 500 metres event. Carrington equalled Danuta Kozák's record of winning all three K-1, K-2, K-4 events, over 500 metres, at one Olympics.",
+            "sport": "Canoe Sprint",
+            "events":[
+                {
+                    "event_name": "Women's Kayak Single 500m",
+                    "medal_won": "g"
+                },
+                {
+                    "event_name": "Women's Kayak Four 500m",
+                    "medal_won": "g"
+                },
+                {
+                    "event_name": "Women's Kayak Double 500m",
+                    "medal_won": "g"
+                }
+            ]
+        },
+        {
+            "name":"THOMAS Gabrielle",
+            "image":"Thomas_Gab.jpg",
+            "countryName":"usa",
+            "letter2":"us",
+            "bio":"Gabrielle Lisa Thomas (born December 7, 1996) is an American track and field athlete specializing in 100 and 200 meter sprint who is the 2024 200m Olympic champion. Born in Georgia and raised in Massachusetts, Thomas competed in college for Harvard University before beginning a professional track career in 2018. Thomas also has a master of public health degree in epidemiology.",
+            "sport": "Athletics",
+            "events":[
+                {
+                    "event_name": "Women's 4 x 400m Relay",
+                    "medal_won": "g"
+                },
+                {
+                    "event_name": "Women's 200m",
+                    "medal_won": "g"
+                },
+                {
+                    "event_name": "Women's 4 x 100m Relay",
+                    "medal_won": "g"
+                }
+            ]
+        },
+        {
+            "name":"PAN Zhanle",
+            "image":"Pan_zhanle.jpg",
+            "countryName":"chn",
+            "letter2":"cn",
+            "bio":"Pan Zhanle (born 4 August 2004) is a Chinese freestyle swimmer, Olympic champion, and current world record holder of the 100 metre freestyle event. In 2023, Pan became the first swimmer in history to have all three achievements of reaching sub-22 seconds in the 50 metre freestyle, sub-47 seconds in the 100 metre freestyle, and sub-1:45 in the 200 metre freestyle. At the 2024 Summer Olympics, he won gold in the 100 metre freestyle, breaking his own world record in the process.",
+            "sport": "Swimming",
+            "events":[
+                {
+                    "event_name": "Men's 4 x 100m Medley Relay",
+                    "medal_won": "s"
+                },
+                {
+                    "event_name": "Men's 100m Freestyle",
+                    "medal_won": "g"
+                },
+                {
+                    "event_name": "Mixed 4 x 100m Medley Relay",
+                    "medal_won": "s"
+                }
+            ]
+        },
+        {
+            "name":"SUN Yingsha",
+            "image":"Sun_Yingsha.jpg",
+            "countryName":"chn",
+            "letter2":"cn",
+            "bio":"Sun Yingsha (born 4 November 2000) is a Chinese professional table tennis player. She is the current world No. 1 in women's singles.In September 2015, Sun entered the second national table tennis team of China. She entered the national first team in January 2017.",
+            "sport": "Table Tennis",
+            "events":[
+                {
+                    "event_name": "Mixed Doubles",
+                    "medal_won": "g"
+                },
+                {
+                    "event_name": "Women's Singles",
+                    "medal_won": "s"
+                },
+                {
+                    "event_name": "Women's Team",
+                    "medal_won": "g"
+                }
+            ]
+        },
+        {
+            "name":"CHOPRA Neeraj",
+            "image":"Neeraj.jpg",
+            "countryName":"ind",
+            "letter2":"in",
+            "bio":"Subedar Major Neeraj Chopra PVSM VSM (born 24 December 1997) is an Indian track and field athlete. Considered as the greatest Indian javelin thrower, he is a double medalist at the Olympics, World Championships, and the Asian Games. He has won the Diamond League once. Chopra won the gold medal at the 2020 Olympics, becoming the first Asian javelin throw athlete to do so.[6] He became the first Asian to win the javelin gold medal at the World Athletics Championships after his win in 2023. Chopra has won gold medals in every major tournament. He has a streak of having a podium finish in 24 consecutive competitions, dating back to 2020.[7] Since his 2016 performance, he holds the junior javelin throw world record with 86.48 m.Chopra is the first athletics gold medalist for India. As of 2024, he is one of only two Indians to have won an individual Olympic gold medal, the youngest-ever Indian Olympic gold medalist in an individual event and the only individual to have won gold on his Olympic debut. He is one of the five individual multiple medalists for India at the Olympics after his silver medal at the 2024 Olympics. He was the first Indian to win at the World Under-20 Championships, where he achieved a world U20 record throw of 86.48 m in 2016, becoming the first Indian athlete to set a world record in athletics.",
+            "sport": "Athletics",
+            "events":[
+                {
+                    "event_name": "Men's Javelin Throw",
+                    "medal_won": "s"
+                }
+               
+            ]
+        }
+     ]
+}

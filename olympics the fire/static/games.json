@@ -1,0 +1,224 @@
+{
+    "game": [
+        {
+            "name": "Archery",
+            "description": "Archery is a precision sport that involves shooting arrows at a target from a predetermined distance. It requires focus, hand-eye coordination, and control, as athletes aim to hit the bullseye. Competitions can vary in format, from individual to team events, and include different types of bows, such as recurve and compound. Archery has ancient roots and has evolved into a modern sport with international competitions, including the Olympics. It promotes discipline and mental fortitude, appealing to individuals seeking both challenge and relaxation in a serene outdoor environment.",
+            "image": "images/games/cover/Games/archery.jpg"
+        },
+        {
+            "name": "Artistic Gymnastics",
+            "description": "Artistic gymnastics is a dynamic sport that combines physical strength, flexibility, and grace. Athletes perform routines on various apparatus, including the floor, vault, bars, and beam, showcasing their skills through acrobatic movements and artistry. Competitions are judged based on difficulty and execution, with both individual and team events. Artistic gymnastics emphasizes discipline and dedication, requiring rigorous training to master techniques and improve performance. It is featured prominently in the Olympics, where gymnasts from around the world compete for medals, captivating audiences with their athleticism and artistry.",
+            "image": "images/games/cover/Games/Artistic_Gymnastic.jpg"
+        },
+        {
+            "name": "Artistic Swimming",
+            "description": "Artistic swimming, formerly known as synchronized swimming, is a captivating water sport that combines swimming, dance, and gymnastics. Athletes perform choreographed routines to music, showcasing their strength, flexibility, and coordination. The sport emphasizes teamwork and creativity, as swimmers execute intricate formations and movements in sync with each other. Artistic swimming is judged based on artistic impression and technical skills, making it a unique blend of athleticism and artistry. It is featured in international competitions, including the Olympics, captivating audiences with its grace and precision.",
+            "image": "images/games/cover/Games/Artistic_Swimming.jpg"
+        },
+        {
+            "name": "Athletics",
+            "description": "Athletics encompasses a variety of competitive sports that involve running, jumping, throwing, and walking. It includes events like sprints, marathons, long jump, and shot put, showcasing athletes' speed, strength, and endurance. Competitions are often held in track and field format, with athletes competing for medals and records. Athletics promotes physical fitness and is accessible to participants of all ages and skill levels. It has a rich history and is a key feature of the Olympic Games, inspiring millions around the world to pursue athletic excellence.",
+            "image": "images/games/cover/Games/Athletics.jpg"
+        },
+        {
+            "name": "Badminton",
+            "description": "Badminton is a fast-paced racket sport played either as singles or doubles, where players aim to hit a shuttlecock over a net. The game emphasizes quick reflexes, agility, and strategic shot placement. Badminton matches can be played both indoors and outdoors, though competitive play typically occurs in indoor arenas. The sport is enjoyed recreationally and at a competitive level, with international tournaments showcasing elite talent. Badminton promotes fitness and coordination, appealing to players of all ages and skill levels while fostering a sense of community through friendly competition.",
+            "image": "images/games/cover/Games/Badminton.jpg"
+        },
+        {
+            "name": "Basketball",
+            "description": "Basketball is an exhilarating team sport played between two teams of five players each, aiming to score points by shooting a ball through the opponent's hoop. The game emphasizes teamwork, strategy, and skill, with players showcasing dribbling, passing, and shooting abilities. It is played on a rectangular court, with professional leagues and international competitions drawing huge audiences. Basketball promotes physical fitness, coordination, and teamwork, making it a popular sport worldwide, enjoyed by players of all ages.",
+            "image": "images/games/cover/Games/Basketball.jpg"
+        },
+        {
+            "name": "Basketball 3x3",
+            "description": "Basketball 3x3 is a fast-paced variation of traditional basketball played with three players on each team. The game emphasizes quick play, skill, and teamwork, with a single hoop and a shorter game duration. 3x3 basketball has gained popularity globally, featuring in various tournaments, including the Olympics. The sport promotes fitness and agility, appealing to players and fans who enjoy its energetic and dynamic nature, as teams compete in a thrilling format that showcases individual talent and collaborative strategies.",
+            "image": "images/games/cover/Games/BasketBall3.jpg"
+        },
+        {
+            "name": "Beach Volleyball",
+            "description": "Beach volleyball is an exciting outdoor sport played on sand, where two teams of two players each compete to score points by hitting a ball over a net. The game combines athleticism, strategy, and teamwork, with players showcasing skills like serving, digging, and spiking. Beach volleyball is known for its energetic atmosphere and often takes place in scenic coastal locations. It is popular both recreationally and competitively, with international tournaments and Olympic events highlighting the sport’s thrilling nature and the athletes' remarkable abilities.",
+            "image": "images/games/cover/Games/BeachVolleyball.jpg"
+        },
+        {
+            "name": "Boxing",
+            "description": "Boxing is a combat sport where two athletes engage in a contest of strength and strategy, aiming to score points by landing punches on their opponent while avoiding being hit. It emphasizes physical fitness, agility, and mental resilience. Competitors wear gloves and protective gear, and bouts are divided into rounds. Boxing has a rich history and is practiced at various levels, from amateur to professional, with major events like world championship fights drawing large audiences. The sport promotes discipline, respect, and personal development among its practitioners.",
+            "image": "images/games/cover/Games/boxing.jpg"
+        },
+        {
+            "name": "Breaking",
+            "description": "Breaking, also known as breakdancing, is a dynamic dance form that originated in street culture and has evolved into a competitive sport. It combines acrobatic movements, style, and creativity, with dancers performing on the floor, utilizing spins, freezes, and footwork. Breaking emphasizes individual expression and showcases the dancer's skill and rhythm. The sport has gained international recognition and will be featured in future Olympic Games, highlighting its cultural significance and the vibrant community of b-boys and b-girls who contribute to its growth.",
+            "image": "images/games/cover/Games/breaking.jpg"
+        },
+        {
+            "name": "Canoe Slalom",
+            "description": "Canoe slalom is an exhilarating water sport that involves navigating a kayak or canoe through a series of obstacles, typically on a whitewater course. Athletes paddle through upstream and downstream gates, showcasing their agility and precision. The sport requires a combination of strength, technique, and quick decision-making as competitors race against the clock. Canoe slalom is featured in international competitions, including the Olympics, where athletes strive for excellence. It promotes fitness and a strong connection with nature, appealing to adventurers and water sports enthusiasts alike.",
+            "image": "images/games/cover/Games/CanoeSlalom.jpg"
+        },
+        {
+            "name": "Canoe Sprint",
+            "description": "Canoe sprint is a fast-paced water sport that involves racing on flatwater in various kayak and canoe disciplines. Athletes compete in short-distance races, showcasing their speed, strength, and technique. The sport requires rigorous training to develop endurance and efficient paddling skills. Canoe sprint competitions can be held in individual and team formats, with events ranging from 200 to 1000 meters. It is featured prominently in international competitions, including the Olympics, captivating audiences with thrilling races and the athletes' impressive performances.",
+            "image": "images/games/cover/Games/CanoeSprint.jpg"
+        },
+        {
+            "name": "Cycling BMX Freestyle",
+            "description": "Cycling BMX freestyle is an exciting discipline that showcases riders performing tricks and stunts on BMX bikes, typically in urban environments or skate parks. Athletes demonstrate their creativity and skill through various maneuvers, including jumps, spins, and grinds. Competitions are judged based on difficulty, execution, and style, attracting a vibrant community of enthusiasts. BMX freestyle has gained global popularity, being featured in major competitions and the Olympics, where riders push the limits of their abilities, captivating audiences with their daring performances.",
+            "image": "images/games/cover/Games/CyclingBMXFreestyle.jpg"
+        },
+        {
+            "name": "Cycling BMX Racing",
+            "description": "Cycling BMX racing is a fast-paced competitive sport where riders race on a dirt track featuring jumps, turns, and obstacles. Competitors aim to be the first to cross the finish line, showcasing their speed, agility, and bike handling skills. Races typically involve multiple riders competing in heats, with the best advancing to finals. BMX racing emphasizes both individual talent and teamwork in relay events. The sport has gained popularity worldwide, with organized competitions leading to Olympic inclusion. BMX racing promotes fitness, encourages risk-taking, and fosters a vibrant community of athletes and fans passionate about the sport.",
+            "image": "images/games/cover/Games/CyclingBMXRace.jpg"
+        },
+        {
+            "name": "Cycling Mountain Bike",
+            "description": "Cycling mountain bike is an adventurous sport that involves riding specially designed bicycles on off-road trails and rugged terrains. It combines endurance, technical skills, and thrill as cyclists navigate through obstacles like rocks, roots, and steep descents. The sport includes various disciplines such as cross-country, downhill, and trail riding, each presenting unique challenges. Mountain biking promotes physical fitness and a connection to nature, appealing to outdoor enthusiasts seeking adventure. Competitive events are held globally, showcasing the skills of elite riders and their passion for the sport.",
+            "image": "images/games/cover/Games/CyclingMountainBike.jpg"
+        },
+        {
+            "name": "Cycling Road",
+            "description": "Cycling road is a popular endurance sport that involves racing on paved roads over various distances, from sprints to multi-stage tours. Athletes compete individually or in teams, showcasing their speed, strategy, and teamwork. Road cycling events, such as the Tour de France, attract global audiences and highlight the skills of elite cyclists. The sport promotes physical fitness and endurance while fostering a strong sense of community among enthusiasts. Cycling road is accessible to participants of all levels, making it a favored activity for both competition and recreation.",
+            "image": "images/games/cover/Games/CyclingRoad.jpg"
+        },
+        {
+            "name": "Cycling Track",
+            "description": "Cycling track is a thrilling indoor sport that involves racing on a velodrome, a specially designed oval track. Athletes compete in various events, including sprint, endurance, and team pursuits, showcasing their speed, strategy, and bike handling skills. The sport emphasizes teamwork in relay events and individual prowess in solo races. Cycling track is featured in major competitions, including the Olympics, where riders push their limits in pursuit of medals. The sport promotes fitness, discipline, and a sense of community among cyclists who share a passion for the track.",
+            "image": "images/games/cover/Games/CyclingTrack.jpg"
+        },
+        {
+            "name": "Diving",
+            "description": "Diving is a captivating aquatic sport that involves performing acrobatic moves while leaping off a diving board or platform into a pool. Athletes execute twists, flips, and turns, emphasizing grace and precision in their entries. Diving competitions are judged on difficulty, execution, and overall artistic impression. The sport is featured in the Olympics and various international events, showcasing the talents of elite divers. Diving promotes physical fitness, body awareness, and mental focus, appealing to both competitive athletes and recreational enthusiasts seeking a unique and exhilarating experience.",
+            "image": "images/games/cover/Games/Diving.jpg"
+        },
+        {
+            "name": "Equestrian",
+            "description": "Equestrian is a distinguished sport involving horse riding and various disciplines, including dressage, show jumping, and eventing. Athletes showcase their skills in harmony with their horses, emphasizing balance, control, and communication. Equestrian competitions can be individual or team-based, with events judged on precision, style, and performance. The sport has a rich history and is featured in major competitions, including the Olympics. Equestrian promotes fitness, discipline, and a deep bond between horse and rider, attracting enthusiasts from diverse backgrounds who share a passion for these magnificent animals.",
+            "image": "images/games/cover/Games/Equestrian.jpg"
+        },
+        {
+            "name": "Fencing",
+            "description": "Fencing is a fast-paced combat sport that involves two competitors using swords to score points by touching their opponent. It combines agility, strategy, and technique, with various styles, including foil, épée, and sabre. Fencers wear protective gear and compete in bouts governed by precise rules and scoring systems. The sport promotes mental focus and quick decision-making, making it an engaging pursuit. Fencing is featured in the Olympics and international competitions, captivating audiences with its elegance and the skill of its athletes.",
+            "image": "images/games/cover/Games/fencing.jpg"
+        },
+        {
+            "name": "Football",
+            "description": "Football, also known as soccer, is a globally popular team sport played between two teams of eleven players each. The objective is to score goals by getting a ball into the opposing team's net. The game emphasizes teamwork, strategy, and skill, with players utilizing various techniques for dribbling, passing, and shooting. Football is played on a rectangular field and is governed by FIFA, organizing major tournaments like the World Cup. The sport promotes physical fitness and has a rich cultural significance, uniting fans and communities worldwide.",
+            "image": "images/games/cover/Games/football.jpg"
+        },
+        {
+            "name": "Golf",
+            "description": "Golf is a precision sport where players aim to hit a ball into a series of holes on a course in the fewest strokes possible. The game combines skill, strategy, and patience, requiring players to master various clubs and techniques. Golf is played on beautifully landscaped courses, with challenges such as sand traps and water hazards. The sport is enjoyed recreationally and competitively, with prestigious tournaments like The Masters and The Open Championship attracting global attention. Golf promotes physical fitness and mental focus, making it a cherished pastime for many.",
+            "image": "images/games/cover/Games/golf.jpg"
+        },
+        {
+            "name": "Handball",
+            "description": "Handball is a fast-paced team sport played between two teams of seven players each, aiming to score goals by throwing a ball into the opponent's net. The game combines elements of basketball and soccer, emphasizing teamwork, speed, and strategy. Players use their hands to pass, dribble, and shoot, with matches played on indoor courts. Handball is popular in Europe and features in international competitions, including the Olympics. The sport promotes fitness, coordination, and camaraderie, captivating audiences with its dynamic play and athleticism.",
+            "image": "images/games/cover/Games/handball.jpg"
+        },
+        {
+            "name": "Hockey",
+            "description": "Hockey is an exciting team sport played on ice or field, where players aim to score goals by hitting a puck or ball into the opponent's net. Ice hockey features fast-paced action on skates, while field hockey is played on grass or turf. The game emphasizes teamwork, strategy, and skill, with players showcasing their agility and precision. Hockey is popular worldwide, with professional leagues and international competitions, including the Olympics. The sport promotes physical fitness, resilience, and camaraderie among players and fans, creating passionate communities.",
+            "image": "images/games/cover/Games/hockey.jpg"
+        },
+        {
+            "name": "Judo",
+            "description": "Judo is a Japanese martial art focused on throws, holds, and grappling techniques. It emphasizes skill, strategy, and discipline, allowing practitioners to use an opponent's force against them. Judokas train rigorously to master various techniques and improve physical fitness. The sport promotes respect and self-control, instilling valuable life skills. Judo is practiced worldwide, with competitions held at various levels, including the Olympics, showcasing the athleticism and artistry of its participants. The sport fosters a sense of community, encouraging mutual respect among judokas.",
+            "image": "images/games/cover/Games/judo.jpg"
+        },
+        {
+            "name": "Marathon Swimming",
+            "description": "Marathon swimming is an endurance sport that involves long-distance swimming in open water, typically covering distances of 10 kilometers or more. Athletes navigate various conditions, including currents, waves, and varying temperatures, requiring exceptional stamina and mental resilience. The sport emphasizes both individual and team events, with competitions held in lakes, rivers, and oceans. Marathon swimming is featured in international events, including the Olympics, where swimmers showcase their endurance and determination. The sport promotes physical fitness and a connection to nature, appealing to adventurous swimmers seeking new challenges.",
+            "image": "images/games/cover/Games/marathon_swimming.jpg"
+        },
+        {
+            "name": "Modern Pentathlon",
+            "description": "Modern pentathlon promotes a well-rounded athleticism, challenging participants both physically and mentally. It was introduced in the early 20th century and has since become an Olympic staple, captivating audiences with its blend of sports and the athletes' ability to excel in multiple disciplines.",
+            "image": "images/games/cover/Games/Pentathlon.jpg"
+        },
+        {
+            "name": "Rowing",
+            "description": "Rowing is a water sport where athletes propel a boat using oars, emphasizing teamwork, strength, and technique. Crews can range from single sculls to larger eights, competing in various distances, including sprints and endurance races. Rowing promotes physical fitness and requires intense training to develop stamina, coordination, and timing. The sport is featured in international competitions like the Olympics and World Championships, showcasing elite talent. Rowing fosters camaraderie among team members, as they work together to achieve common goals, making it a rewarding and challenging pursuit for athletes at all levels.",
+            "image": "images/games/cover/Games/rowing.jpg"
+        },
+        {
+            "name": "Rugby Sevens",
+            "description": "Rugby sevens is a fast-paced variant of rugby union, played with seven players on each team, featuring shorter matches and high-scoring games. The sport emphasizes speed, agility, and teamwork, with players showcasing their skills in a shorter format that promotes excitement and dynamic play. Rugby sevens has gained global popularity, with international tournaments culminating in the World Rugby Sevens Series and Olympic events. The sport fosters a strong sense of camaraderie and sportsmanship among players, captivating audiences with its thrilling action and athleticism.",
+            "image": "images/games/cover/Games/Rugby.jpg"
+        },
+        {
+            "name": "Sailing",
+            "description": "Sailing is a water sport that involves navigating boats using wind power. It encompasses various disciplines, including racing and cruising, emphasizing skill, strategy, and teamwork. Sailors learn to manipulate sails and adjust to changing weather conditions, making it a dynamic and engaging sport. Competitions are held at local, national, and international levels, including the Olympics, where athletes showcase their sailing expertise. The sport promotes physical fitness, mental focus, and a deep appreciation for nature, attracting enthusiasts who enjoy adventure on the open water.",
+            "image": "images/games/cover/Games/Sailing.jpg"
+        },
+        {
+            "name": "Shooting",
+            "description": "Shooting is a precision sport that involves using firearms or air guns to hit targets at varying distances. It encompasses various disciplines, including rifle, pistol, and shotgun events, requiring athletes to demonstrate accuracy, concentration, and control. Competitions can be individual or team-based, with events held at local, national, and international levels, including the Olympics. Shooting promotes mental focus and discipline, appealing to enthusiasts who enjoy the challenge of hitting targets with precision. The sport fosters a strong community among participants and encourages respect for safety and responsibility.",
+            "image": "images/games/cover/Games/Shooting.jpg"
+        },
+        {
+            "name": "Skateboarding",
+            "description": "Skateboarding is a thrilling action sport that involves riding a skateboard while performing tricks and maneuvers. It combines elements of creativity, athleticism, and style, attracting a diverse community of enthusiasts. Skateboarding can be done in various settings, including skate parks and urban environments, where riders showcase their skills on ramps, rails, and street obstacles. The sport has gained international recognition, with competitions like the X Games and its inclusion in the Olympics. Skateboarding promotes physical fitness, self-expression, and a sense of community among riders.",
+            "image": "images/games/cover/Games/Skateboarding.jpg"
+        },
+        {
+            "name": "Sport Climbing",
+            "description": "Sport climbing is an exhilarating discipline that combines athleticism and technique, where climbers ascend artificial walls or natural rock formations. The sport emphasizes strength, endurance, and problem-solving, with climbers navigating routes of varying difficulty levels. Competitions often feature lead climbing and bouldering formats, showcasing athletes' skills and creativity. Sport climbing has gained global popularity, culminating in Olympic inclusion, where climbers display their impressive abilities. The sport fosters a strong sense of community among enthusiasts, encouraging camaraderie and mutual support in pursuing climbing challenges.",
+            "image": "images/games/cover/Games/SportClimbing.jpg"
+        },
+        {
+            "name": "Surfing",
+            "description": "Surfing is an exhilarating water sport that involves riding waves on a surfboard. It combines skill, balance, and a deep connection with the ocean, as surfers paddle out and navigate the waves. The sport has a vibrant culture and is often associated with coastal lifestyles. Competitions are held worldwide, showcasing surfers' abilities to perform maneuvers on waves of various sizes. Surfing promotes physical fitness and mental well-being, appealing to those seeking adventure and a unique connection with nature. It has gained Olympic recognition, highlighting its global popularity.",
+            "image": "images/games/cover/Games/Surfing.jpg"
+        },
+        {
+            "name": "Swimming",
+            "description": "Swimming is a fundamental water sport involving various styles, including freestyle, breaststroke, backstroke, and butterfly. It promotes physical fitness, endurance, and relaxation, making it accessible to individuals of all ages. Competitive swimming features individual and relay events, showcasing athletes' speed and technique. The sport is a key component of the Olympics and other international competitions, captivating audiences with thrilling races. Swimming not only enhances cardiovascular health but also fosters a sense of community among swimmers, whether in recreational or competitive settings.",
+            "image": "images/games/cover/Games/Swimming.jpg"
+        },
+        {
+            "name": "Table Tennis",
+            "description": "Table tennis, also known as ping pong, is a fast-paced racket sport played on a table divided by a net. Players use small paddles to hit a lightweight ball back and forth, emphasizing quick reflexes, precision, and strategy. The game can be played in singles or doubles formats, with competitions held worldwide, including the Olympics. Table tennis promotes physical fitness and mental agility, appealing to enthusiasts of all ages. The sport fosters friendly competition and camaraderie, making it a popular recreational activity.",
+            "image": "images/games/cover/Games/TableTennis.jpg"
+        },
+        {
+            "name": "Taekwondo",
+            "description": "Taekwondo is a Korean martial art known for its high-energy kicks and dynamic techniques. It emphasizes discipline, respect, and self-control, with practitioners training rigorously to master various forms and sparring techniques. Taekwondo competitions feature sparring and poomsae (forms) events, showcasing athletes' skills and athleticism. The sport promotes physical fitness, flexibility, and mental focus, appealing to individuals of all ages. Taekwondo is practiced worldwide and is included in the Olympics, fostering a sense of community among practitioners who share a passion for martial arts.",
+            "image": "images/games/cover/Games/Taekwondo.jpg"
+        },
+        {
+            "name": "Tennis",
+            "description": "Tennis is a competitive racket sport played between two individuals (singles) or two teams of two (doubles), aiming to score points by hitting a ball over a net. The game emphasizes agility, strategy, and skill, with players showcasing powerful serves, volleys, and groundstrokes. Tennis is played on various surfaces, including grass, clay, and hard courts, and features prestigious tournaments like Wimbledon and the US Open. The sport promotes physical fitness, mental resilience, and a strong sense of sportsmanship, making it a beloved pastime for millions worldwide.",
+            "image": "images/games/cover/Games/Tennis.jpg"
+        },
+        {
+            "name": "Trampoline",
+            "description": "Trampoline is an exciting acrobatic sport where athletes perform flips, twists, and routines on a trampoline. It emphasizes coordination, strength, and aerial awareness, requiring extensive training to master various techniques. Competitions are judged based on difficulty, execution, and artistry, showcasing the talents of elite trampolinists. Trampoline is featured in international events, including the Olympics, captivating audiences with its dynamic performances. The sport promotes physical fitness and encourages creativity and self-expression, appealing to individuals seeking a fun and challenging way to stay active.",
+            "image": "images/games/cover/Games/Trampoline.jpg"
+        },
+        {
+            "name": "Triathlon",
+            "description": "Triathlon is a demanding endurance sport that combines three disciplines: swimming, cycling, and running. Athletes compete in a sequential format, showcasing their versatility and stamina across varying distances. The sport emphasizes training and mental toughness, as participants prepare for transitions between each discipline. Triathlons are held globally, from sprint distances to Ironman events, attracting athletes of all skill levels. Triathlon promotes physical fitness and healthy living, fostering a strong sense of community among participants who share a passion for multi-sport challenges.",
+            "image": "images/games/cover/Games/Traiathlon.jpg"
+        },
+        {
+            "name": "Volleyball",
+            "description": "Volleyball is an exciting team sport played between two teams, aiming to score points by hitting a ball over a net and into the opponent's court. The game emphasizes teamwork, strategy, and skill, with players showcasing their abilities in serving, passing, and attacking. Volleyball can be played indoors or on the beach, with both formats gaining popularity globally. The sport promotes physical fitness and camaraderie, appealing to individuals of all ages. Competitive volleyball features in major tournaments, including the Olympics, highlighting the talents of elite athletes.",
+            "image": "images/games/cover/Games/Volleyball.jpg"
+        },
+        {
+            "name": "Water Polo",
+            "description": "Water polo is a team water sport played in a pool, where two teams of seven players aim to score goals by throwing a ball into the opponent's net. The game combines swimming, strategy, and teamwork, requiring players to demonstrate stamina and tactical skills. Water polo matches are intense, with players constantly in motion and engaging in physical confrontations. The sport is featured in international competitions, including the Olympics, promoting physical fitness and team dynamics among participants. Water polo fosters camaraderie and a strong sense of community among athletes.",
+            "image": "images/games/cover/Games/Waterpolo.jpg"
+        },
+        {
+            "name": "Weightlifting",
+            "description": "Weightlifting is a strength sport that focuses on lifting heavy weights in two main lifts: the snatch and the clean and jerk. Athletes compete in various weight categories, showcasing their power, technique, and determination. The sport emphasizes proper form and technique, requiring extensive training and discipline. Weightlifting is featured in international competitions, including the Olympics, where athletes strive for personal bests and medals. It promotes physical fitness and strength development, appealing to individuals seeking to challenge themselves and achieve their fitness goals.",
+            "image": "images/games/cover/Games/Weightlifting.jpg"
+        },
+        {
+            "name": "Wrestling",
+            "description": "Wrestling is a dynamic combat sport that involves grappling techniques to gain control over an opponent. It encompasses various styles, including freestyle, Greco-Roman, and folkstyle, each with unique rules and techniques. Wrestlers compete on mats, showcasing their strength, agility, and strategy. The sport promotes physical fitness, discipline, and resilience, requiring rigorous training and mental focus. Wrestling is featured in international competitions, including the Olympics, captivating audiences with its athleticism and the skills of its participants. The sport fosters a sense of community and respect among wrestlers.",
+            "image": "images/games/cover/Games/Wrestling.jpg"
+        }
+    ]
+}

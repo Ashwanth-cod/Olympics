@@ -1,0 +1,9 @@
+.navbar{
+    position: sticky;
+    top: 0;
+}
+
+.grid-rest{
+    display: grid;
+    grid-row: 200px 200px 200px;
+}
